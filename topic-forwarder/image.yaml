@@ -1,0 +1,22 @@
+version: latest
+release: 1
+name: topic-forwarder
+from: centos:7
+user: 185
+dogen:
+    version: "2.0.0rc11"
+cmd:
+    - "/opt/topic-forwarder/bin/topic-forwarder"
+packages:
+    - java-1.8.0-openjdk-devel
+sources:
+    - url: https://dl.bintray.com/enmasse/snapshots/latest/topic-forwarder.tgz
+      md5sum: 91598121bdcb567d9e064204eb92f389
+           
+scripts:
+    - package: topic-fowarder
+      exec: install
+envs:
+    information:
+        - name: "JAVA_HOME"
+          value: "/usr/lib/jvm/java"

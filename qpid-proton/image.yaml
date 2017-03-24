@@ -1,0 +1,22 @@
+version: latest
+release: 1
+name: enmasseproject/qpidproton
+from: centos:7
+user: 185
+#dogen:
+#    version: "2.0.0rc11"
+cmd:
+    - "bash"
+
+#RUN rpm -i https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    
+packages:
+    - cmake
+    - cyrus-sasl-devel
+    - make
+    - swig
+    
+scripts:
+    - package: epel-qpid-proton
+      exec: install
+  

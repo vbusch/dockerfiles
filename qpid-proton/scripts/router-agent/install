@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+DISTRO_NAME=ragent-latest
+
+mkdir -p /opt/app-root/src/
+# unpack
+{
+    cd /tmp/artifacts
+    tar xzf "$DISTRO_NAME.tar.gz"
+    mv *.js /opt/app-root/src
+}
+npm install -g debug && npm install -g rhea

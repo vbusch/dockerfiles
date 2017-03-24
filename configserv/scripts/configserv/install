@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+DISTRO_NAME=configserv
+
+# unpack
+{
+    cd /tmp/artifacts
+    tar xzf "$DISTRO_NAME.tgz"
+    mv "$DISTRO_NAME" /opt
+}

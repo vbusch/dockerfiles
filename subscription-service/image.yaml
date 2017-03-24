@@ -1,0 +1,29 @@
+version: latest
+release: 1
+name: subscription-service
+from: centos:7
+user: 185
+dogen:
+    version: "2.0.0rc11"
+cmd:
+    - "node"
+    - "/opt/app-root/src/subserv.js"
+
+sources:
+    - url: https://dl.bintray.com/enmasse/snapshots/latest/subserv-latest.tar.gz
+      md5sum: f0f73b68ef2174e46493136ea00e8f8e
+           
+scripts:
+    - package: epel-node
+      exec: install
+    - package: subscription-service
+      exec: install
+
+envs:
+    information:
+        - name: "NODE_PATH"
+          value: "/usr/lib/node_modules"
+        - name: "DISTRO_NAME"
+          value: "subserv-latest"
+ports:
+    - value: 5672

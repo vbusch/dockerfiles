@@ -1,0 +1,23 @@
+version: latest
+release: 1
+name: enmasseproject/mqtt-lwt
+from: centos:7
+user: 185
+#dogen:
+#    version: "2.0.0rc11"
+cmd:
+    - "/opt/mqtt-lwt/run_mqtt.sh"
+packages:
+    - java-1.8.0-openjdk-devel
+sources:
+    - url: https://dl.bintray.com/enmasse/snapshots/latest/mqtt-lwt-1.0-SNAPSHOT-bin.tar.gz
+      md5sum: b875d4f89c8be6cc4a11988c254bd3c5
+scripts:
+    - package: mqtt-lwt
+      exec: install
+envs:
+    information:
+        - name: "DISTRO_NAME"
+          value: "mqtt-lwt-1.0-SNAPSHOT-bin"
+        - name: "JAVA_HOME"
+          value: "/usr/lib/jvm/java"      

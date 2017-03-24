@@ -1,4 +1,4 @@
-PROJECT_NAME=qdrouterd
+PROJECT_NAME=configserv
 
 include ../Makefile.common
 

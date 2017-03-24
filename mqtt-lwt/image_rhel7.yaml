@@ -1,0 +1,19 @@
+version: 1.0
+release: 1
+name: redhat-amqmaas-1-tech-preview/amqmaas10-mqttlwt-openshift
+from: redhat-openjdk-18/openjdk18-openshift:1.0
+user: 185
+#dogen:
+#    version: "2.0.0rc11"
+cmd:
+    - "/opt/mqtt-lwt/run_mqtt.sh"
+sources:
+    - url: https://dl.bintray.com/enmasse/releases/0.8.0/mqtt-lwt-0.8.0-bin.tar.gz
+      md5sum: e7a6be7e29907705cb0a535a429c8341
+envs:
+    information:
+        - name: "DISTRO_NAME"
+          value: "mqtt-lwt-0.8.0-bin"
+scripts:
+    - package: mqtt-lwt
+      exec: install

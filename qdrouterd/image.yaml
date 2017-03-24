@@ -1,0 +1,28 @@
+version: latest
+release: 1
+name: enmasseproject/qdrouterd
+from: enmassproject/qpid-proton:latest
+user: 185
+#dogen:
+#    version: "2.0.0rc11"
+cmd:
+    - "/etc/qpid-dispatch/run_qdr.sh"
+    
+packages:
+    - gettext
+    - hostname
+    - iputils
+    
+sources:
+    - url: https://dl.bintray.com/enmasse/snapshots/latest/qpid-dispatch-image.tar.gz
+      md5sum: 4b2181f17afb5475e049a2b6ef43d1a9
+
+scripts:
+    - package: qdrouterd
+      exec: install
+      
+ports:
+    - value: 5672 
+    - value: 55672 
+    - value: 5671
+  

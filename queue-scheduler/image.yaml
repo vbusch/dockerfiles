@@ -1,0 +1,26 @@
+version: latest
+release: 1
+name: queue-scheduler
+from: centos:7
+user: 185
+dogen:
+    version: "2.0.0rc11"
+cmd:
+    - "/opt/queue-scheduler/bin/queue-scheduler"
+packages:
+    - java-1.8.0-openjdk-devel
+sources:
+   - url: https://dl.bintray.com/enmasse/snapshots/latest/queue-scheduler.tgz
+     md5sum: bd31f4d11b2bc563aaaea5dcd3e8c056
+           
+scripts:
+    - package: queue-scheduler
+      exec: install
+
+envs:
+    information:
+        - name: "JAVA_HOME"
+          value: "/usr/lib/jvm/java"      
+      
+ports:
+    - value: 55667

@@ -1,4 +1,4 @@
-PROJECT_NAME=qdrouterd
+PROJECT_NAME=topic-forwarder
 
 include ../Makefile.common
 

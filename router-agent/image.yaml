@@ -1,0 +1,32 @@
+version: latest
+release: 1
+name: router-agent
+from: centos:7
+user: 185
+dogen:
+    version: "2.0.0rc11"
+cmd:
+    - "node"
+    - "/opt/app-root/src/ragent.js"
+packages:
+    - java-1.8.0-openjdk-devel
+sources:
+    - url: https://dl.bintray.com/enmasse/snapshots/latest/ragent-latest.tar.gz
+      md5sum: b5025ba0f694f4852d06fae0f637323d
+
+scripts:
+    - package: epel-node
+      exec: install
+    - package: router-agent
+      exec: install
+
+envs:
+    information:
+        - name: "JAVA_HOME"
+          value: "/usr/lib/jvm/java"    
+        - name: "NODE_PATH"
+          value: "/usr/lib/node_modules"
+        - name: "DISTRO_NAME"
+          value: "ragent-latest"           
+ports:
+    - value: 55672

@@ -1,0 +1,30 @@
+version: 1.0
+release: 1
+name: redhat-amqmaas-1-tech-preview/amqmaas10-subscriptionservice-openshift
+from: rhel7:7.3-released
+user: 185
+dogen:
+    version: "2.0.0rc11"
+cmd:
+    - "node"
+    - "/opt/app-root/src/subserv.js"
+
+sources:
+    - url: https://dl.bintray.com/enmasse/releases/0.8.0/subserv-0.8.0.tar.gz
+      md5sum: 6617dc9587d309cd70d3f83179a1ea4d
+           
+scripts:
+    - package: epel-node
+      exec: install
+    - package: subscription-service
+      exec: install
+
+envs:
+    information:
+        - name: "NODE_PATH"
+          value: "/usr/lib/node_modules"
+        - name: "DISTRO_NAME"
+          value: "subserv-0.8.0"
+
+ports:
+    - value: 5672

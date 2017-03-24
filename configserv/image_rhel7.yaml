@@ -1,0 +1,19 @@
+version: 1.0
+release: 1
+name: redhat-amqmaas-1-tech-preview/amqmaas10-configserv-openshift
+from: redhat-openjdk-18/openjdk18-openshift:1.0
+#user: 185
+dogen:
+    version: "2.0.0rc11"
+cmd:
+    - "/opt/configserv/bin/configserv"
+sources:
+    - url: https://dl.bintray.com/enmasse/releases/0.8.0/configserv.tgz
+      md5sum: ba8ef6c6036923525f39d5b544726445
+           
+scripts:
+    - package: configserv
+      exec: install
+      
+ports:
+    - value: 5672

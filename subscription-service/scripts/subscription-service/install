@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+mkdir -p /opt/app-root/src/
+# unpack
+{
+    cd /tmp/artifacts
+    tar xzf "$DISTRO_NAME.tar.gz"
+    mv *.js /opt/app-root/src
+}
+npm install -g debug && npm install -g bluebird && npm install -g rhea

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+SCRIPT_DIR=$(dirname $0)
+
+DISTRO_NAME=server
+
+# unpack
+{
+    cd /tmp/artifacts
+    tar xzf "$DISTRO_NAME.tgz"
+    mv "$DISTRO_NAME" /opt
+}
