@@ -1,4 +1,4 @@
-SUBDIRS=qdrouterd
+SUBDIRS=qdrouterd router-collector
 
 all: $(SUBDIRS)
 
