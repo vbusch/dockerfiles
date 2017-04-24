@@ -8,5 +8,6 @@ REPO=$(NAME_SPACE)/$(PROJECT_NAME)
 all: build 
 	echo "Running docker build"
 	docker run -i --rm -v ${CURDIR}:/tmp/output:z jboss/dogen:latest --verbos /tmp/output/$(IMAGE_FILE) /tmp/output/build
-	docker build -t $(REPO):$(IMAGE_VERSION) build --no-cache
+	cat build/Dockerfile
+	docker build -t $(REPO):$(IMAGE_VERSION) build
 	curl -s https://raw.githubusercontent.com/EnMasseProject/travis-scripts/master/docker-build.sh | bash /dev/stdin $(REPO) $(DOCKERFILE_DIR)

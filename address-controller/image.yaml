@@ -12,7 +12,7 @@ packages:
     
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/server.tgz
-      md5sum: ec63dfe64ef64198eb148cc91008e3f0
+      md5sum: 27a009b9b78279e6366c12d7802411f8
            
 scripts:
     - package: address-controller
