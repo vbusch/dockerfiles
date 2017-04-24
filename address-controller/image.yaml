@@ -1,5 +1,5 @@
 version: latest
-release: 1
+release: dev
 name: enmasseproject/address-controller
 from: centos:7
 user: 185

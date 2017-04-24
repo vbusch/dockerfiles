@@ -1,5 +1,5 @@
 version: 1.0
-release: 1
+release: dev
 name: redhat-amqmaas-1-tech-preview/amqmaas10-topicforwarder-openshift
 from: redhat-openjdk-18/openjdk18-openshift:1.0
 user: 185

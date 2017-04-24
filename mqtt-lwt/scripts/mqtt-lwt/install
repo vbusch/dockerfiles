@@ -14,6 +14,5 @@ mkdir --parents /opt/mqtt-lwt
     mv mqtt-lwt.jar /opt/mqtt-lwt/
 }
 
-#mv $ADDED_DIR/$DISTRO_NAME.jar /opt/mqtt-lwt/
 mv $ADDED_DIR/run_mqtt.sh /opt/mqtt-lwt
 chmod +x /opt/mqtt-lwt/run_mqtt.sh

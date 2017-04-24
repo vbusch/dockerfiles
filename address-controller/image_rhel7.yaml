@@ -1,5 +1,5 @@
 version: 1.0
-release: 1
+release: dev
 name: redhat-amqmaas-1-tech-preview/amqmaas10-addresscontroller-openshift
 from: redhat-openjdk-18/openjdk18-openshift:1.0
 user: 185
@@ -8,8 +8,8 @@ user: 185
 cmd:
     - "/opt/server/bin/server"
 sources:
-    - url: https://dl.bintray.com/enmasse/releases/0.8.0/latest/server.tgz
-      md5sum: ec63dfe64ef64198eb148cc91008e3f0
+    - url: https://dl.bintray.com/enmasse/releases/0.8.0/server.tgz
+      md5sum: 08afde2ed1ac386fae8248ac708ce3a5
            
 scripts:
     - package: address-controller

@@ -1,5 +1,5 @@
 version: 1.0
-release: 1
+release: dev
 name: redhat-amqmaas-1-tech-preview/amqmaas10-interconnect-openshift
 from: redhat-amqmaas-1-tech-preview/amqmaas10-qpidproton-openshift:1.0
 user: 185

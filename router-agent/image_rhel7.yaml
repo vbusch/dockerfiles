@@ -1,6 +1,6 @@
 version: 1.0
-release: 1
-name: redhat-amqmaas-1-tech-preview amqmaas10/routeragent-openshift
+release: dev
+name: redhat-amqmaas-1-tech-preview/amqmaas10-routeragent-openshift
 from: rhel7:7.3-released
 user: 185
 dogen:

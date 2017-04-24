@@ -1,5 +1,5 @@
 version: 1.0
-release: 1
+release: dev
 name: redhat-amqmaas-1-tech-preview/amqmaas10-subscriptionservice-openshift
 from: rhel7:7.3-released
 user: 185

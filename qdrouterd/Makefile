@@ -1,5 +1,3 @@
-PROJECT_NAME=qdrouterd
-
 include ../Makefile.common
 
 build:

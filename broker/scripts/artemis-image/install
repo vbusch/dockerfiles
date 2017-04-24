@@ -14,15 +14,11 @@ chmod 777 /home/jboss
 
 PATH=$ARTEMIS_HOME/bin:$PATH
 
-mkdir --parents /opt/mqtt-lwt
 # unpack
 {
     cd /tmp/artifacts
 
     mv $DISTRO_NAME-bin.tar.gz /opt
-#    mv apache-artemis-2.0.0-bin.tar.gz* /opt
-#    tar xf /opt/apache-artemis-2.0.0-bin.tar.gz*
-#    mv apache-artemis-2.0.0 /opt
     tar xf /opt/$DISTRO_NAME-bin.tar.gz
     mv $DISTRO_NAME /opt
     

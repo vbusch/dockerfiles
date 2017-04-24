@@ -1,5 +1,5 @@
 version: latest
-release: 1
+release: dev
 name: enmasseproject/qdrouterd
 from: enmassproject/qpid-proton:latest
 user: 185
