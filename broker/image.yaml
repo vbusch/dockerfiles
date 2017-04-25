@@ -3,8 +3,6 @@ release: dev
 name: enmasseproject/artemis
 from: centos:7
 user: 185
-#dogen:
-#    version: "2.0.0rc11"
 
 cmd:
     - "/opt/apache-artemis-2.0.0-SNAPSHOT/bin/main"
@@ -21,15 +19,9 @@ packages:
 
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/artemis-image.tar
-      md5sum: bd8abdfed196944603dc307e08ccd5db
-#      md5sum: 2979749fc947124d894c8370ee0420c5
+      md5sum: 219d26189eec4d677135f329d356331f
     - url: http://people.redhat.com/~ulilleen/apache-artemis-2.0.0-SNAPSHOT-bin.tar.gz
       md5sum: cf6b21f2e9d6f1b04cfcea85fd21033f
-#    - url: http://w1.wikisend.com/node-fs/download/109b0390fd437c9aafb4e1b07088ea23/apache-artemis-2.0.0-SNAPSHOT-bin.tar.gz
-#      md5sum: df326b2233b7a62b4845c152389d2466
-      #fe03a54991ebf2af70ff3e2cd3033fbb
-#    - url: https://www.apache.org/dyn/closer.cgi?filename=activemq/activemq-artemis/2.0.0/apache-artemis-2.0.0-bin.tar.gz&action=download
-#      md5sum: fe03a54991ebf2af70ff3e2cd3033fbb
 scripts:
     - package: artemis-image
       exec: install
@@ -42,7 +34,8 @@ envs:
           value: "/opt/apache-artemis-2.0.0-SNAPSHOT"
         - name: "PATH"
           value: "$ARTEMIS_HOME/bin:$PATH"
-           
+        - name: "DISTRO_NAME"
+          value: "apache-artemis-2.0.0-SNAPSHOT"           
 #volumes: 
 #  - "/var/run/artemis"           
            

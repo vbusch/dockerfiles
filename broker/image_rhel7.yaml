@@ -3,12 +3,10 @@ release: dev
 name: redhat-amqmaas-1-tech-preview/amqmaas10-broker-openshift
 from: redhat-openjdk-18/openjdk18-openshift:1.0
 user: 185
-#dogen:
-#    version: "2.0.0rc11"
 
 cmd:
-    - "/opt/apache-artemis-2.0.0-SNAPSHOT/bin/main"
-    - "/opt/apache-artemis-2.0.0-SNAPSHOT/bin/launch.sh"
+    - "/opt/apache-artemis-2.0.0/bin/main"
+    - "/opt/apache-artemis-2.0.0/bin/launch.sh"
 
 packages:
     - gettext
@@ -21,10 +19,8 @@ packages:
 sources:
     - url: https://dl.bintray.com/enmasse/releases/0.8.0/artemis-image.tar
       md5sum: 2979749fc947124d894c8370ee0420c5
-    - url: http://people.redhat.com/~ulilleen/apache-artemis-2.0.0-SNAPSHOT-bin.tar.gz
-      md5sum: cf6b21f2e9d6f1b04cfcea85fd21033f
-#    - url: https://www.apache.org/dyn/closer.cgi?filename=activemq/activemq-artemis/2.0.0/apache-artemis-2.0.0-bin.tar.gz&action=download
-#      md5sum: fe03a54991ebf2af70ff3e2cd3033fbb
+    - url: http://central.maven.org/maven2/org/apache/activemq/apache-artemis/2.0.0/apache-artemis-2.0.0-bin.tar.gz
+      md5sum: fe03a54991ebf2af70ff3e2cd3033fbb
 scripts:
     - package: artemis-image
       exec: install
@@ -32,12 +28,16 @@ scripts:
 envs:
     information:
         - name: "ARTEMIS_HOME"
-          value: "/opt/apache-artemis-2.0.0-SNAPSHOT"
+          value: "/opt/apache-artemis-2.0.0"
         - name: "PATH"
           value: "$ARTEMIS_HOME/bin:$PATH"
-           
-#volumes: 
-#  - "/var/run/artemis"           
+        - name: "DISTRO_NAME"
+          value: "mqtt-gateway-0.8.0-bin"
+        - name: "DISTRO_NAME"
+          value: "apache-artemis-2.0.0"           
+                     
+volumes: 
+  - "/var/run/artemis"           
            
 ports:
     - value: 5673 

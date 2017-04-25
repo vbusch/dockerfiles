@@ -4,7 +4,6 @@ set -e
 
 SCRIPT_DIR=$(dirname $0)
 ADDED_DIR=${SCRIPT_DIR}/added
-DISTRO_NAME=apache-artemis-2.0.0-SNAPSHOT
 
 #For volume
 mkdir -p /var/run/artemis/
@@ -17,7 +16,6 @@ PATH=$ARTEMIS_HOME/bin:$PATH
 # unpack
 {
     cd /tmp/artifacts
-
     mv $DISTRO_NAME-bin.tar.gz /opt
     tar xf /opt/$DISTRO_NAME-bin.tar.gz
     mv $DISTRO_NAME /opt
