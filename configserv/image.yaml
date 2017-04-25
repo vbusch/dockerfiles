@@ -3,15 +3,13 @@ release: dev
 name: enmasseproject/configserv
 from: centos:7
 user: 185
-#dogen:
-#    version: "2.0.0rc11"
 cmd:
     - "/opt/configserv/bin/configserv"
 packages:
     - java-1.8.0-openjdk-devel    
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/configserv.tgz
-      md5sum:  373b68260cbc8c22750fc2e45c515589      
+      md5sum: 3d80479871b39ff065c3ee04e77dda05
 scripts:
     - package: configserv
       exec: install

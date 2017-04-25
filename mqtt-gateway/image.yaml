@@ -11,7 +11,7 @@ packages:
     - java-1.8.0-openjdk-devel
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/mqtt-gateway-1.0-SNAPSHOT-bin.tar.gz
-      md5sum: 98d286bbb7b765eda4d4a28718721efa  
+      md5sum: 5996523bc6e40bbc32ae9f325f6de432
 
 scripts:
     - package: mqtt-gateway
