@@ -9,7 +9,6 @@ packages:
     - java-1.8.0-openjdk-devel
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/mqtt-lwt-1.0-SNAPSHOT-bin.tar.gz
-      md5sum: 13457bda7874c80280f527a28e5e7104
 scripts:
     - package: mqtt-lwt
       exec: install

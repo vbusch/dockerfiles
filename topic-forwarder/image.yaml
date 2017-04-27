@@ -9,7 +9,6 @@ packages:
     - java-1.8.0-openjdk-devel
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/topic-forwarder.tgz
-      md5sum: 6446b52134b4ba457051d8ff5c784b44
            
 scripts:
     - package: topic-fowarder

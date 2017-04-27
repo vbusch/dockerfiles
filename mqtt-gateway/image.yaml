@@ -3,15 +3,12 @@ release: dev
 name: enmasseproject/mqtt-gateway
 from: centos:7
 user: 185
-dogen:
-    version: "2.0.0rc11"
 cmd:
     - "/opt/mqtt-gateway/run_mqtt.sh"
 packages:
     - java-1.8.0-openjdk-devel
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/mqtt-gateway-1.0-SNAPSHOT-bin.tar.gz
-      md5sum: 5996523bc6e40bbc32ae9f325f6de432
 
 scripts:
     - package: mqtt-gateway

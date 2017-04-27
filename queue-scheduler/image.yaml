@@ -9,7 +9,6 @@ packages:
     - java-1.8.0-openjdk-devel
 sources:
    - url: https://dl.bintray.com/enmasse/snapshots/latest/queue-scheduler.tgz
-     md5sum: 808de5ad65afce8dbf4b5edbe6cf2c56
 scripts:
     - package: queue-scheduler
       exec: install

@@ -13,7 +13,6 @@ packages:
     
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/qpid-dispatch-image.tar.gz
-      md5sum: 4b2181f17afb5475e049a2b6ef43d1a9
 
 scripts:
     - package: qdrouterd

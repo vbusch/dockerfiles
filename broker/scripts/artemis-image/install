@@ -4,32 +4,32 @@ set -e
 
 SCRIPT_DIR=$(dirname $0)
 ADDED_DIR=${SCRIPT_DIR}/added
+INCLUDED_SCRIPT_DIR=opt/apache-artemis-2.0.0-SNAPSHOT
 
 #For volume
 mkdir -p /var/run/artemis/
+chown 185 /var/run/artemis
+
 mkdir -p /home/jboss/
-chmod 777 /var/run/artemis
-chmod 777 /home/jboss
+chown 185 /home/jboss
 
 PATH=$ARTEMIS_HOME/bin:$PATH
 
-# unpack
+# unpack apache-artemis
 {
     cd /tmp/artifacts
     mv $DISTRO_NAME-bin.tar.gz /opt
     tar xf /opt/$DISTRO_NAME-bin.tar.gz
     mv $DISTRO_NAME /opt
-    
-    mv $ADDED_DIR/dynamic_resources.sh /opt/$DISTRO_NAME/bin
-    mv $ADDED_DIR/launch.sh /opt/$DISTRO_NAME/bin
-    mv $ADDED_DIR/partitionPV.sh /opt/$DISTRO_NAME/bin
-
+}
+# unpack artemis-image
+{    
     tar xf "artemis-image.tar"
     mv config_templates /config_templates
-
-    mv opt/apache-artemis-2.0.0-SNAPSHOT/lib/artemis-amqp-connector-2.0.0-SNAPSHOT.jar /opt/$DISTRO_NAME/lib
+    mv $INCLUDED_SCRIPT_DIR/bin/dynamic_resources.sh /opt/$DISTRO_NAME/bin
+    mv $INCLUDED_SCRIPT_DIR/bin/launch.sh /opt/$DISTRO_NAME/bin
+    mv $INCLUDED_SCRIPT_DIR/bin/partitionPV.sh /opt/$DISTRO_NAME/bin
+    mv $INCLUDED_SCRIPT_DIR/lib/artemis-amqp-connector-2.0.0-SNAPSHOT.jar /opt/$DISTRO_NAME/lib
     #REPLACE WITH TRAP SCRIPT    
-    mv opt/apache-artemis-2.0.0-SNAPSHOT/bin/main /opt/$DISTRO_NAME/bin
-
-    
+    mv $INCLUDED_SCRIPT_DIR/bin/main /opt/$DISTRO_NAME/bin   
 }

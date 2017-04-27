@@ -3,6 +3,7 @@ release: dev
 name: enmasseproject/address-controller
 from: centos:7
 user: 185
+
 cmd:
     - "/opt/server/bin/server"
 packages:
@@ -10,7 +11,6 @@ packages:
     
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/server.tgz
-      md5sum: af011c79c4d97a97f07c10d768d8565f
            
 scripts:
     - package: address-controller

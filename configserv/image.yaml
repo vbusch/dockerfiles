@@ -9,7 +9,6 @@ packages:
     - java-1.8.0-openjdk-devel    
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/configserv.tgz
-      md5sum: 3d80479871b39ff065c3ee04e77dda05
 scripts:
     - package: configserv
       exec: install

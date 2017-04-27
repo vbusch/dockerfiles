@@ -1,10 +1,10 @@
 version: 1.0
 release: dev
-name: redhat-amqmaas-1-tech-preview/amqmaas10-routeragent-openshift
+name: jboss-amqmaas-1-tech-preview/amqmaas10-routeragent-openshift
 from: rhel7:7.3-released
 user: 185
 dogen:
-    version: "2.0.0rc11"
+    version: "2.0.0rc12"
 cmd:
     - "node"
     - "/opt/app-root/src/ragent.js"

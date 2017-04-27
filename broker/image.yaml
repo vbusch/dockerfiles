@@ -19,9 +19,7 @@ packages:
 
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/artemis-image.tar
-      md5sum: 219d26189eec4d677135f329d356331f
     - url: http://people.redhat.com/~ulilleen/apache-artemis-2.0.0-SNAPSHOT-bin.tar.gz
-      md5sum: cf6b21f2e9d6f1b04cfcea85fd21033f
 scripts:
     - package: artemis-image
       exec: install
@@ -36,8 +34,8 @@ envs:
           value: "$ARTEMIS_HOME/bin:$PATH"
         - name: "DISTRO_NAME"
           value: "apache-artemis-2.0.0-SNAPSHOT"           
-#volumes: 
-#  - "/var/run/artemis"           
+volumes: 
+  - "/var/run/artemis"           
            
 ports:
     - value: 5673 

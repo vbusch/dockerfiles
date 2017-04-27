@@ -10,7 +10,6 @@ packages:
     - java-1.8.0-openjdk-devel
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/ragent-latest.tar.gz
-      md5sum: fa782a8ab6209c93197c0578c219739c
 
 scripts:
     - package: epel-node

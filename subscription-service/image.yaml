@@ -9,7 +9,6 @@ cmd:
 
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/subserv-latest.tar.gz
-      md5sum: 666f26037d2e10596d0cdc77471fd5e2
            
 scripts:
     - package: epel-node
