@@ -16,3 +16,4 @@ mkdir --parents /opt/mqtt-lwt
 
 mv $ADDED_DIR/run_mqtt.sh /opt/mqtt-lwt
 chmod +x /opt/mqtt-lwt/run_mqtt.sh
+chmod -R a+rwX /home/jboss

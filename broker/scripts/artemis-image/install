@@ -33,3 +33,6 @@ PATH=$ARTEMIS_HOME/bin:$PATH
     #REPLACE WITH TRAP SCRIPT    
     mv $INCLUDED_SCRIPT_DIR/bin/main /opt/$DISTRO_NAME/bin   
 }
+chown -R jboss:jboss /opt/$DISTRO_NAME
+chmod -R a+rwX /home/jboss
+chmod -R a+rwX /opt/$DISTRO_NAME

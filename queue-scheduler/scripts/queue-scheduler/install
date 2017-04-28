@@ -10,3 +10,4 @@ DISTRO_NAME=queue-scheduler
     tar xzf "$DISTRO_NAME.tgz"
     mv "$DISTRO_NAME" /opt
 }
+chmod -R a+rwX /home/jboss

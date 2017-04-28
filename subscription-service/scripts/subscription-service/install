@@ -10,3 +10,4 @@ mkdir -p /opt/app-root/src/
     mv *.js /opt/app-root/src
 }
 npm install -g debug && npm install -g bluebird && npm install -g rhea
+chmod -R a+rwX /home/jboss

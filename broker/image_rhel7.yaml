@@ -1,7 +1,7 @@
 version: 1.0
 release: dev
 name: jboss-amqmaas-1-tech-preview/amqmaas10-broker-openshift
-from: redhat-openjdk-18/openjdk18-openshift:1.0
+from: jboss/openjdk18-rhel7:1.0
 user: 185
 dogen:
     version: "2.0.0rc12"
@@ -21,6 +21,8 @@ packages:
 sources:
     - url: https://dl.bintray.com/enmasse/releases/0.8.0/artemis-image.tar
       md5sum: 2979749fc947124d894c8370ee0420c5
+#    - url: http://people.redhat.com/~ulilleen/apache-artemis-2.0.0-SNAPSHOT-bin.tar.gz
+#      md5sum: cf6b21f2e9d6f1b04cfcea85fd21033f
     - url: http://central.maven.org/maven2/org/apache/activemq/apache-artemis/2.0.0/apache-artemis-2.0.0-bin.tar.gz
       md5sum: fe03a54991ebf2af70ff3e2cd3033fbb
 scripts:
