@@ -11,4 +11,7 @@ mkdir -p /opt/app-root/src/
 }
 npm install -g debug && npm install -g rhea
 
+#need to create home dir for community images
+mkdir -p /home/jboss
+chown 185 /home/jboss
 chmod -R a+rwX /home/jboss

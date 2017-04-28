@@ -16,4 +16,8 @@ mkdir --parents /opt/mqtt-gateway
 #mv $ADDED_DIR/$DISTRO_NAME.jar /opt/mqtt-gateway/
 mv $ADDED_DIR/run_mqtt.sh /opt/mqtt-gateway/
 chmod +x /opt/mqtt-gateway/run_mqtt.sh
+
+#need to create home dir for community images
+mkdir -p /home/jboss
+chown 185 /home/jboss
 chmod -R a+rwX /home/jboss
