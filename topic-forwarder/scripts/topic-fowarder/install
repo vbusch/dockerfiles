@@ -13,6 +13,6 @@ DISTRO_NAME=topic-forwarder
     mv "$DISTRO_NAME" /opt
 #    ln -s "/opt/$DISTRO_NAME" "/opt/topic-forwarder"
 }
-chown -R jboss:jboss /opt/topic-forwarder
+chown -R 185:0 /opt/topic-forwarder
 chmod -R a+rwX $HOME
 chmod -R a+rwX /opt/topic-forwarder
