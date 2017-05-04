@@ -28,10 +28,9 @@ PATH=$ARTEMIS_HOME/bin:$PATH
     mv config_templates /config_templates
     mv $INCLUDED_SCRIPT_DIR/bin/dynamic_resources.sh /opt/$DISTRO_NAME/bin
     mv $INCLUDED_SCRIPT_DIR/bin/launch.sh /opt/$DISTRO_NAME/bin
+    mv $INCLUDED_SCRIPT_DIR/bin/safe_launch.sh /opt/$DISTRO_NAME/bin
     mv $INCLUDED_SCRIPT_DIR/bin/partitionPV.sh /opt/$DISTRO_NAME/bin
     mv $INCLUDED_SCRIPT_DIR/lib/artemis-amqp-connector-2.0.0-SNAPSHOT.jar /opt/$DISTRO_NAME/lib
-    #REPLACE WITH TRAP SCRIPT    
-    mv $INCLUDED_SCRIPT_DIR/bin/main /opt/$DISTRO_NAME/bin   
 }
 chown -R 185:0 /opt/$DISTRO_NAME
 chmod -R a+rwX /home/jboss
