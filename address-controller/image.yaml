@@ -13,7 +13,9 @@ sources:
 scripts:
     - package: address-controller
       exec: install
-      
+#    - package: dynamic-resources
+#      exec: install
+            
 ports:
     - value: 5672
     - value: 8080
