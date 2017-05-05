@@ -26,10 +26,9 @@ PATH=$ARTEMIS_HOME/bin:$PATH
 {    
     tar xf "artemis-image.tar"
     mv config_templates /config_templates
-    mv $INCLUDED_SCRIPT_DIR/bin/dynamic_resources.sh /opt/$DISTRO_NAME/bin
-    mv $INCLUDED_SCRIPT_DIR/bin/launch.sh /opt/$DISTRO_NAME/bin
-    mv $INCLUDED_SCRIPT_DIR/bin/safe_launch.sh /opt/$DISTRO_NAME/bin
-    mv $INCLUDED_SCRIPT_DIR/bin/partitionPV.sh /opt/$DISTRO_NAME/bin
+    mv $ADDED_DIR/launch.sh /opt/$DISTRO_NAME/bin
+    mv $ADDED_DIR/safe_launch.sh /opt/$DISTRO_NAME/bin
+    mv $ADDED_DIR/partitionPV.sh /opt/$DISTRO_NAME/bin
     mv $INCLUDED_SCRIPT_DIR/lib/artemis-amqp-connector-2.0.0-SNAPSHOT.jar /opt/$DISTRO_NAME/lib
 }
 chown -R 185:0 /opt/$DISTRO_NAME

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 . $ARTEMIS_HOME/bin/partitionPV.sh
-. $ARTEMIS_HOME/bin/dynamic_resources.sh
+. /usr/local/dynamic-resources/dynamic_resources.sh
 
 export BROKER_IP=`hostname -I | cut -f 1 -d ' '`
 CONFIG_TEMPLATES=/config_templates
