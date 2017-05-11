@@ -3,6 +3,7 @@
 set -e
 
 SCRIPT_DIR=$(dirname $0)
+ADDED_DIR=${SCRIPT_DIR}/added
 
 DISTRO_NAME=server
 
@@ -11,6 +12,8 @@ DISTRO_NAME=server
     cd /tmp/artifacts
     tar xzf "$DISTRO_NAME.tgz"
     mv "$DISTRO_NAME" /opt
+    
+    mv $ADDED_DIR/launch.sh /opt/$DISTRO_NAME/bin
 }
 
 #need to create home dir for community images
