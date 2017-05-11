@@ -1,8 +1,10 @@
-version: latest
+version: 1.0
 release: dev
-name: enmasseproject/qdrouterd
-from: enmasseproject/qpid-proton
+name: jboss-amqmaas-1-tech-preview/amqmaas10-interconnect-openshift
+from: jboss-amqmaas-1-tech-preview/amqmaas10-qpidproton-openshift:1.0
 user: 185
+dogen:
+    version: "2.0.0rc12"
 cmd:
     - "/etc/qpid-dispatch/run_qdr.sh"
     

@@ -3,12 +3,16 @@
 set -e
 
 DISTRO_NAME=configserv
+SCRIPT_DIR=$(dirname $0)
+ADDED_DIR=${SCRIPT_DIR}/added
 
 # unpack
 {
     cd /tmp/artifacts
     tar xzf "$DISTRO_NAME.tgz"
     mv "$DISTRO_NAME" /opt
+
+    mv $ADDED_DIR/launch.sh /opt/$DISTRO_NAME/bin
 }
 #need to create home dir for community images
 mkdir -p /home/jboss

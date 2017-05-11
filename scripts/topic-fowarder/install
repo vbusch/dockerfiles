@@ -3,6 +3,7 @@
 set -e
 
 SCRIPT_DIR=$(dirname $0)
+ADDED_DIR=${SCRIPT_DIR}/added
 
 DISTRO_NAME=topic-forwarder
 
@@ -11,7 +12,7 @@ DISTRO_NAME=topic-forwarder
     cd /tmp/artifacts
     tar xzf "$DISTRO_NAME.tgz"
     mv "$DISTRO_NAME" /opt
-#    ln -s "/opt/$DISTRO_NAME" "/opt/topic-forwarder"
+    mv $ADDED_DIR/launch.sh /opt/$DISTRO_NAME/bin 
 }
 chown -R 185:0 /opt/topic-forwarder
 chmod -R a+rwX $HOME
