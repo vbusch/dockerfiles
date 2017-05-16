@@ -11,9 +11,11 @@ cmd:
 
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/ragent-latest.tar.gz
+packages:
+    - npm
+    - nodejs
+
 scripts:
-    - package: epel-node
-      exec: install
     - package: router-agent
       exec: install
 

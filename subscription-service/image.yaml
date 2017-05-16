@@ -8,13 +8,14 @@ dogen:
 cmd:
     - "node"
     - "/opt/app-root/src/subserv.js"
+packages:
+    - npm
+    - nodejs
 
 sources:
     - url: https://dl.bintray.com/enmasse/snapshots/latest/subserv-latest.tar.gz
            
-scripts:
-    - package: epel-node
-      exec: install
+scripts:    
     - package: subscription-service
       exec: install
 

@@ -12,9 +12,7 @@ packages:
     - cmake
     - cyrus-sasl-devel
     - make
+    - python-qpid-proton
     - swig
     
-scripts:
-    - package: epel-qpid-proton
-      exec: install
   
