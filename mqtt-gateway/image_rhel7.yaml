@@ -4,12 +4,12 @@ name: jboss-amqmaas-1-tech-preview/amqmaas10-mqttgateway-openshift
 from: jboss-base-7/jdk8:1.3
 user: 185
 dogen:
-    version: "2.0.0rc12"
+    version: "2.0.0rc15"
 cmd:
     - "/opt/mqtt-gateway/run_mqtt.sh"
 sources:
-    - url: https://dl.bintray.com/enmasse/releases/0.8.0/mqtt-gateway-0.8.0-bin.tar.gz
-      md5sum: 55aa4d04c4eb8115ee8a0b6bedc23847
+    - url: https://dl.bintray.com/enmasse/releases/0.10.0/mqtt-gateway-0.10.0-bin.tar.gz
+      md5sum: 460aad785fb6e5eebf3d1788e97263bf
            
 scripts:
     - package: mqtt-gateway
@@ -18,7 +18,7 @@ scripts:
 envs:
     information:
         - name: "DISTRO_NAME"
-          value: "mqtt-gateway-0.8.0-bin"
+          value: "mqtt-gateway-0.10.0-bin"
 
 ports:
     - value: 1883 

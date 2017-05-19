@@ -4,7 +4,7 @@ name: jboss-amqmaas-1-tech-preview/amqmaas10-interconnect-openshift
 from: jboss-amqmaas-1-tech-preview/amqmaas10-qpidproton-openshift:1.0
 user: 185
 dogen:
-    version: "2.0.0rc12"
+    version: "2.0.0rc15"
 cmd:
     - "/etc/qpid-dispatch/run_qdr.sh"
     
@@ -14,8 +14,8 @@ packages:
     - iputils
     
 sources:
- - url: https://dl.bintray.com/enmasse/releases/0.8.0/qpid-dispatch-image.tar.gz
-   md5sum: 858ad90b541a80744c0adfc005881878
+ - url: https://dl.bintray.com/enmasse/releases/0.10.0/qpid-dispatch-image.tar.gz
+   md5sum: dcdb472358589a5ea069260374b52d3f
 
 scripts:
     - package: qdrouterd
