@@ -4,16 +4,16 @@ name: jboss-amqmaas-1-tech-preview/amqmaas10-mqttlwt-openshift
 from: jboss-base-7/jdk8:1.3
 user: 185
 dogen:
-    version: "2.0.0rc12"
+    version: "2.0.0rc15"
 cmd:
     - "/opt/mqtt-lwt/run_mqtt.sh"
 sources:
-    - url: https://dl.bintray.com/enmasse/releases/0.8.0/mqtt-lwt-0.8.0-bin.tar.gz
-      md5sum: e7a6be7e29907705cb0a535a429c8341
+    - url: https://dl.bintray.com/enmasse/releases/0.10.0/mqtt-lwt-0.10.0-bin.tar.gz
+      md5sum: b82a43018c8f6475156add6650a786ec
 envs:
     information:
         - name: "DISTRO_NAME"
-          value: "mqtt-lwt-0.8.0-bin"
+          value: "mqtt-lwt-0.10.0-bin"
 scripts:
     - package: mqtt-lwt
       exec: install

@@ -4,13 +4,14 @@ name: jboss-amqmaas-1-tech-preview/amqmaas10-addresscontroller-openshift
 from: jboss-base-7/jdk8:1.3
 user: 185
 dogen:
-    version: "2.0.0rc12"
+    version: "2.0.0rc15"
 cmd:
     - "/opt/server/bin/server"
 sources:
-    - url: https://dl.bintray.com/enmasse/releases/0.8.0/server.tgz
-      md5sum: 08afde2ed1ac386fae8248ac708ce3a5
-           
+    - url: https://dl.bintray.com/enmasse/releases/0.10.0/server.tgz
+      md5sum: e6861d579002eda5c960b255ee52a07e
+packages: 
+    - openssl
 scripts:
     - package: address-controller
       exec: install 
