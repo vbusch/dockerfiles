@@ -8,8 +8,8 @@ dogen:
 user: 185
 
 cmd:
-    - "/opt/apache-artemis-2.0.0-SNAPSHOT/bin/safe_launch.sh"
-    - "/opt/apache-artemis-2.0.0-SNAPSHOT/bin/launch.sh"
+    - "/opt/apache-artemis-2.1.0/bin/safe_launch.sh"
+    - "/opt/apache-artemis-2.1.0/bin/launch.sh"
 
 packages:
     - gettext
@@ -20,9 +20,9 @@ packages:
     - which 
 
 # TODO: Use product built artifacts
-sources:
-    - url: https://dl.bintray.com/enmasse/snapshots/latest/artemis-image.tar
-    - url: http://people.redhat.com/~ulilleen/apache-artemis-2.0.0-SNAPSHOT-bin.tar.gz
+sources:    
+	- url: https://dl.bintray.com/enmasse/snapshots/latest/artemis-image.tar
+    - url: http://www-eu.apache.org/dist/activemq/activemq-artemis/2.1.0/apache-artemis-2.1.0-bin.tar.gz
 
 scripts:
     - package: artemis-image
@@ -33,11 +33,11 @@ scripts:
 envs:
     information:
         - name: "ARTEMIS_HOME"
-          value: "/opt/apache-artemis-2.0.0-SNAPSHOT"
+          value: "/opt/apache-artemis-2.1.0"
         - name: "PATH"
           value: "$ARTEMIS_HOME/bin:$PATH"
         - name: "DISTRO_NAME"
-          value: "apache-artemis-2.0.0-SNAPSHOT"           
+          value: "apache-artemis-2.1.0"           
 volumes: 
   - "/var/run/artemis"           
            

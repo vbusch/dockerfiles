@@ -4,7 +4,7 @@ set -e
 
 SCRIPT_DIR=$(dirname $0)
 ADDED_DIR=${SCRIPT_DIR}/added
-INCLUDED_SCRIPT_DIR=opt/apache-artemis-2.0.0-SNAPSHOT
+#INCLUDED_SCRIPT_DIR=opt/${DISTRO_NAME}
 
 #For volume
 mkdir -p /var/run/artemis/
@@ -29,7 +29,7 @@ PATH=$ARTEMIS_HOME/bin:$PATH
     mv $ADDED_DIR/launch.sh /opt/$DISTRO_NAME/bin
     mv $ADDED_DIR/safe_launch.sh /opt/$DISTRO_NAME/bin
     mv $ADDED_DIR/partitionPV.sh /opt/$DISTRO_NAME/bin
-    mv $INCLUDED_SCRIPT_DIR/lib/artemis-amqp-connector-2.0.0-SNAPSHOT.jar /opt/$DISTRO_NAME/lib
+    mv opt/$DISTRO_NAME/lib/artemis-amqp-connector.jar /opt/$DISTRO_NAME/lib
 }
 chown -R 185:0 /opt/$DISTRO_NAME
 chmod -R a+rwX /home/jboss
