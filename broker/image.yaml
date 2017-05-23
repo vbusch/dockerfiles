@@ -21,7 +21,7 @@ packages:
 
 # TODO: Use product built artifacts
 sources:    
-	- url: https://dl.bintray.com/enmasse/snapshots/latest/artemis-image.tar
+    - url: https://dl.bintray.com/enmasse/snapshots/latest/artemis-image.tar
     - url: http://www-eu.apache.org/dist/activemq/activemq-artemis/2.1.0/apache-artemis-2.1.0-bin.tar.gz
 
 scripts:
