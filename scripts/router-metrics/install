@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+mkdir -p /opt
+# unpack
+{
+    cd /tmp/artifacts
+    mv *.py /opt/
+}
+pip install prometheus_client
+
+#need to create home dir for community images
+mkdir -p /home/jboss
+chown 185 /home/jboss
+chmod -R a+rwX /home/jboss
