@@ -1,0 +1,21 @@
+version: 1.0
+release: dev
+name: jboss-amqmaas-1-tech-preview/amqmaas10-routermetrics-openshift
+from: jboss-amqmaas-1-tech-preview/amqmaas10-qpidproton-openshift:1.0
+user: 185
+dogen:
+    version: "2.0.0rc15"
+cmd:
+    - "python"
+    - "/opt/router-metrics.py"
+
+sources:
+    - url: https://dl.bintray.com/enmasse/releases/0.11.0/router-metrics.py
+      md5sum: aa85ddcea8b4f39d8b088de6d932e7bc
+           
+scripts:    
+    - package: router-metrics
+      exec: install
+
+ports:
+    - value: 8080

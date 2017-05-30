@@ -1,7 +1,7 @@
-version: 1.0
+version: latest
 release: dev
-name: jboss-amqmaas-1-tech-preview/amqmaas10-routermetrics-openshift
-from: jboss-amqmaas-1-tech-preview/amqmaas10-qpidproton-openshift:latest
+name: enmasseproject/router-metrics
+from: enmasseproject/qpid-proton
 user: 185
 dogen:
     version: "2.0.0rc15"

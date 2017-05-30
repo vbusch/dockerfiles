@@ -2,13 +2,12 @@
 set -u
 set -e
 
-# set up EPEL, install python-qpid-proton
+# set up EPEL, install nodejs npm
 # working around some limitations in Dogen's repos plugin
 
 SCRIPT_DIR=$(dirname $0)
 mv $SCRIPT_DIR/epel.repo /etc/yum.repos.d
 rpm --import $SCRIPT_DIR/RPM-GPG-KEY-EPEL-7
-yum install -y python-qpid-proton python2-pip
-
+yum install -y nodejs npm cyrus-sasl-lib
 yum clean all
 rm /etc/yum.repos.d/epel.repo
