@@ -3,7 +3,7 @@ COMMIT?=latest
 IMAGE_VERSION?=latest
 DOCKERFILE_DIR?=build
 REPO?=$(shell cat $(IMAGE_FILE) | grep "^name:" | cut -d' ' -f2)
-DOGEN_VERSION?=2.0.0rc12
+DOGEN_VERSION?=2.0.0rc15
 
 all: build 
 	echo "Running docker build $(REPO)"
