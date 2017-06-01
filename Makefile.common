@@ -7,7 +7,7 @@ DOGEN_VERSION?=2.0.0rc15
 
 all: build 
 	echo "Running docker build $(REPO)"
-	docker run -i --rm -v ${CURDIR}:/tmp/output:z -v ${CURDIR}/../repos/7.3/jboss-epel.repo:/dogen/additional_scripts/jboss-epel.repo:z -v ${CURDIR}/../repos/7.3/jboss-rhel-os.repo:/dogen/additional_scripts/jboss-rhel-os.repo:z -v ${CURDIR}/../scripts:/tmp/scripts:z jboss/dogen:$(DOGEN_VERSION)  --verbos /tmp/output/$(IMAGE_FILE) --scripts /tmp/scripts --repo-files-dir /dogen/additional_scripts/ --without-sources /tmp/output/build
+	docker run -i --rm -v ${CURDIR}:/tmp/output:z -v ${CURDIR}/../repos/7.3/jboss-epel.repo:/dogen/additional_scripts/jboss-epel.repo:z -v ${CURDIR}/../repos/7.3/jboss-rhel-os.repo:/dogen/additional_scripts/jboss-rhel-os.repo:z -v ${CURDIR}/../scripts:/tmp/scripts:z jboss/dogen:$(DOGEN_VERSION) --ws --verbos /tmp/output/$(IMAGE_FILE) --scripts /tmp/scripts --repo-files-dir /dogen/additional_scripts/ /tmp/output/build
 	docker build -t $(REPO):$(IMAGE_VERSION)  build
   
 ## BEFORE Merging into master, update docker-build.sh to not pass version as an arg (assuming all docker files are being built by this repo
