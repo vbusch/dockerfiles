@@ -12,6 +12,7 @@ packages:
     - cmake
     - cyrus-sasl-devel
     - make
+    - python2-pip
     - python-qpid-proton
     - swig
     
