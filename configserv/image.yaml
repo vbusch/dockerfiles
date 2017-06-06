@@ -1,4 +1,4 @@
-version: 1.0
+version: latest
 release: dev
 name: jboss-amqmaas-1-tech-preview/amqmaas10-configserv-openshift
 from: jboss/openjdk18-rhel7:1.0
