@@ -1,4 +1,4 @@
-SUBDIRS=address-controller broker configserv mqtt-gateway mqtt-lwt qpid-proton qdrouterd queue-scheduler router-agent subscription-service topic-forwarder 
+SUBDIRS=address-controller broker console configserv mqtt-gateway mqtt-lwt qpid-proton qdrouterd queue-scheduler router-agent router-metrics subscription-service topic-forwarder 
 
 all: $(SUBDIRS)
 
