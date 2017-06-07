@@ -1,18 +1,17 @@
-version: latest
-release: dev
+version: 1.0
 name: jboss-amqmaas-1-tech-preview/amqmaas10-mqttlwt-openshift
 from: jboss/openjdk18-rhel7:1.0
 user: 185
 dogen:
-    version: "2.0.0rc15"
+    version: "2.0.0"
+    ssl_verify: false
 cmd:
     - "/opt/mqtt-lwt/run_mqtt.sh"
 sources:
-    - url: https://dl.bintray.com/enmasse/snapshots/latest/mqtt-lwt-1.0-SNAPSHOT-bin.tar.gz
+    - artifact: https://dl.bintray.com/enmasse/snapshots/latest/mqtt-lwt-1.0-SNAPSHOT-bin.tar.gz
 envs:
-    information:
-        - name: "DISTRO_NAME"
-          value: "mqtt-lwt-1.0-SNAPSHOT-bin"
+    - name: "DISTRO_NAME"
+      value: "mqtt-lwt-1.0-SNAPSHOT-bin"
 scripts:
     - package: mqtt-lwt
       exec: install
