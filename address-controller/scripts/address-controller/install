@@ -16,4 +16,4 @@ DISTRO_NAME=server
 #need to create home dir for community images
 mkdir -p /home/jboss
 chown 185 /home/jboss
-chmod -R a+rwX /home/jboss
+chmod -R a+rwx /home/jboss
