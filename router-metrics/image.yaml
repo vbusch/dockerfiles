@@ -1,16 +1,16 @@
-version: latest
-release: dev
+version: 1.0
 name: jboss-amqmaas-1-tech-preview/amqmaas10-routermetrics-openshift
 from: jboss-amqmaas-1-tech-preview/amqmaas10-qpidproton-openshift:latest
 user: 185
 dogen:
-    version: "2.0.0rc15"
+    version: "2.0.0"
+    ssl_verify: false
 cmd:
     - "python"
     - "/opt/router-metrics.py"
 
 sources:
-    - url: https://dl.bintray.com/enmasse/snapshots/latest/router-metrics.py
+    - artifact: https://dl.bintray.com/enmasse/snapshots/latest/router-metrics.py
            
 scripts:    
     - package: router-metrics

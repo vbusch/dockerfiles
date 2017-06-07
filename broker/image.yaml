@@ -1,10 +1,9 @@
 # TODO: Set version from build server
-version: latest
-release: dev
+version: 1.0
 name: jboss-amqmaas-1-tech-preview/amqmaas10-broker-openshift
 from: jboss/openjdk18-rhel7:1.0
 dogen:
-    version: "2.0.0rc15"
+    version: "2.0.0"
 user: 185
 
 cmd:
@@ -21,8 +20,8 @@ packages:
 
 # TODO: Use product built artifacts
 sources:    
-    - url: https://dl.bintray.com/enmasse/snapshots/latest/artemis-image.tar
-    - url: http://www-eu.apache.org/dist/activemq/activemq-artemis/2.1.0/apache-artemis-2.1.0-bin.tar.gz
+    - artifact: https://dl.bintray.com/enmasse/snapshots/latest/artemis-image.tar
+    - artifact: http://www-eu.apache.org/dist/activemq/activemq-artemis/2.1.0/apache-artemis-2.1.0-bin.tar.gz
 
 scripts:
     - package: artemis-image
@@ -31,13 +30,12 @@ scripts:
       exec: install      
 
 envs:
-    information:
-        - name: "ARTEMIS_HOME"
-          value: "/opt/apache-artemis-2.1.0"
-        - name: "PATH"
-          value: "$ARTEMIS_HOME/bin:$PATH"
-        - name: "DISTRO_NAME"
-          value: "apache-artemis-2.1.0"           
+    - name: "ARTEMIS_HOME"
+      value: "/opt/apache-artemis-2.1.0"
+    - name: "PATH"
+      value: "$ARTEMIS_HOME/bin:$PATH"
+    - name: "DISTRO_NAME"
+      value: "apache-artemis-2.1.0"           
 volumes: 
   - "/var/run/artemis"           
            
