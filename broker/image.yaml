@@ -2,7 +2,7 @@
 version: latest
 release: dev
 name: jboss-amqmaas-1-tech-preview/amqmaas10-broker-openshift
-from: jboss-base-7/jdk8:1.3
+from: jboss/openjdk18-rhel7:1.0
 dogen:
     version: "2.0.0rc15"
 user: 185

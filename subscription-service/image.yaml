@@ -1,4 +1,4 @@
-version: 1.0
+version: latest
 release: dev
 name: jboss-amqmaas-1-tech-preview/amqmaas10-subscriptionservice-openshift
 from: jboss-base-7/base:1.3
