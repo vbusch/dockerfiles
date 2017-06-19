@@ -10,7 +10,7 @@ cmd:
     - "/opt/router-metrics.py"
 
 packages:
-    - python-pip
+    - python2-pip
 
 sources:
     - artifact: https://dl.bintray.com/enmasse/snapshots/latest/router-metrics.py
