@@ -9,6 +9,9 @@ cmd:
     - "python"
     - "/opt/router-metrics.py"
 
+packages:
+    - python-pip
+
 sources:
     - artifact: https://dl.bintray.com/enmasse/snapshots/latest/router-metrics.py
            
