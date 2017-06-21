@@ -6,11 +6,10 @@ dogen:
     version: "2.0.0"
     ssl_verify: false
 cmd:
-    - "node"
-    - "/opt/app-root/src/bin/console_server.js"
+    - "/opt/console/bin/launch.sh"
+
 packages:
-    - npm
-    - nodejs
+    - rh-nodejs4
     - cyrus-sasl-lib
 
 sources:
@@ -22,7 +21,6 @@ scripts:
     - package: console
       exec: prepare.sh
       user: 185
-
 
 envs:
     - name: "NODE_PATH"
