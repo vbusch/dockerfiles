@@ -1,4 +1,4 @@
-SUBDIRS=qdrouterd router-metrics
+SUBDIRS=qpid-proton qdrouterd router-metrics
 
 all: $(SUBDIRS)
 

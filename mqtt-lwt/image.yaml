@@ -3,7 +3,7 @@ name: jboss-amqmaas-1-tech-preview/amqmaas10-mqttlwt-openshift
 from: jboss/openjdk18-rhel7:1.0
 user: 185
 dogen:
-    version: "2.0.0"
+    version: "2.0.1"
     ssl_verify: false
 cmd:
     - "/opt/mqtt-lwt/run_mqtt.sh"
