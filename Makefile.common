@@ -26,3 +26,5 @@ snapshot:
 
 clean:
 	rm -rf build
+
+.PHONY: all push snapshot clean
