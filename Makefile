@@ -1,18 +1,27 @@
 SUBDIRS=qpid-proton qdrouterd router-metrics
 
-all: $(SUBDIRS)
+all:
+	for dir in $(SUBDIRS); do \
+		$(MAKE) -C $$dir; \
+	done
 
-push: $(SUBDIRS)
-	$(MAKE) -C $@ push
+pushall:
+	for dir in $(SUBDIRS); do \
+		$(MAKE) -C $$dir push; \
+	done
 
-snapshot: $(SUBDIRS)
-	$(MAKE) -C $@ snapshot
+snapshotall:
+	for dir in $(SUBDIRS); do \
+		$(MAKE) -C $$dir snapshot; \
+	done
 
-clean: $(SUBDIRS) 
-	$(MAKE) -C $@ clean
+cleanall:
+	for dir in $(SUBDIRS); do \
+		$(MAKE) -C $$dir clean; \
+	done
 
 $(SUBDIRS):
 	$(MAKE) -C $@ $(MAKECMDGOALS)
 #	curl -s https://raw.githubusercontent.com/EnMasseProject/travis-scripts/master/trigger-travis.sh | bash /dev/stdin
 
-.PHONY: all $(SUBDIRS) push snapshot clean
+.PHONY: all $(SUBDIRS) push snapshot clean pushall snapshotall cleanall
