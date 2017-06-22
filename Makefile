@@ -2,6 +2,12 @@ SUBDIRS=qpid-proton qdrouterd router-metrics
 
 all: $(SUBDIRS)
 
+push: $(SUBDIRS)
+	$(MAKE) -C $@ push
+
+snapshot: $(SUBDIRS)
+	$(MAKE) -C $@ snapshot
+
 clean: $(SUBDIRS) 
 	$(MAKE) -C $@ clean
 
