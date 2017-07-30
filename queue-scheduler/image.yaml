@@ -3,12 +3,13 @@ name: jboss-amqmaas-1-tech-preview/amqmaas10-queuescheduler-openshift
 from: jboss/openjdk18-rhel7:1.0
 user: 185
 dogen:
-    version: "2.0.1"
+    version: "2.4.1"
     ssl_verify: false
 cmd:
     - "/opt/queue-scheduler/bin/launch.sh"
 sources:
-   - artifact: https://dl.bintray.com/enmasse/snapshots/latest/queue-scheduler.tgz
+    - artifact: https://dl.bintray.com/enmasse/snapshots/latest/queue-scheduler.tgz
+      target: queue-scheduler.tgz  
            
 scripts:
     - package: queue-scheduler

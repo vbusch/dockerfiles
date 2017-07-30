@@ -1,4 +1,4 @@
-SUBDIRS=qpid-proton qdrouterd router-metrics
+SUBDIRS=address-controller broker console configserv mqtt-gateway mqtt-lwt qpid-proton router queue-scheduler router-agent router-metrics subscription-service topic-forwarder 
 
 all:
 	for dir in $(SUBDIRS); do \
@@ -18,6 +18,11 @@ snapshotall:
 cleanall:
 	for dir in $(SUBDIRS); do \
 		$(MAKE) -C $$dir clean; \
+	done
+
+copyartifactall:
+	for dir in $(SUBDIRS); do \
+		$(MAKE) -C $$dir copyartifact; \
 	done
 
 $(SUBDIRS):

@@ -3,7 +3,7 @@ name: jboss-amqmaas-1-tech-preview/amqmaas10-console-openshift
 from: jboss/base-rhel7:1.0
 user: 185
 dogen:
-    version: "2.0.1"
+    version: "2.4.1"
     ssl_verify: false
 cmd:
     - "/opt/console/bin/launch.sh"
@@ -14,6 +14,7 @@ packages:
 
 sources:
     - artifact: https://dl.bintray.com/enmasse/snapshots/latest/console-latest.tar.gz
+      target: console.tgz
            
 scripts:    
     - package: console
@@ -26,7 +27,7 @@ envs:
     - name: "NODE_PATH"
       value: "/usr/lib/node_modules"
     - name: "DISTRO_NAME"
-      value: "console-latest"
+      value: "console"
 ports:
     - value: 56720 
     - value: 8080

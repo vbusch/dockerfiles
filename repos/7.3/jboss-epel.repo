@@ -1,7 +1,0 @@
-[jboss-epel]
-name=Extra Packages for Enterprise Linux 7 - $basearch
-baseurl=http://rhcs-pulp.rhev-ci-vms.eng.rdu2.redhat.com/pulp/repos/epel/7/$basearch
-gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7 
-enabled=1
-

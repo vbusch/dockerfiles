@@ -3,7 +3,7 @@ name: jboss-amqmaas-1-tech-preview/amqmaas10-qpidproton-openshift
 from: jboss/base-rhel7:1.0
 user: 185
 dogen:
-    version: "2.0.1"
+    version: "2.4.1"
     ssl_verify: false
 cmd:
     - "bash"
@@ -14,6 +14,8 @@ packages:
     - make
     - python2-pip
     - python-qpid-proton
+    - qpid-dispatch-router 
+    - qpid-dispatch-tools
     - swig
     
   
