@@ -18,12 +18,12 @@ sources:
       target: router.tgz
 
 scripts:
-    - package: qdrouterd
+    - package: router
       exec: install
 
 envs:
     - name: "DISTRO_NAME"
-      value: "router"      
+      value: "router"         
       
 ports:
     - value: 5672 
