@@ -1,0 +1,30 @@
+schema_version: 1
+
+version: 1.0
+name: jboss-amqmaas-1/amqmaas10-console-openshift
+description: "AMQMaas console"
+from: jboss-amqmaas-1-tech-preview/nodejs-base:1.0
+labels:
+    - name: "io.k8s.description"
+      value: "console for enmaase"
+    - name: "io.k8s.display-name"
+      value: "AMQMaas Console"
+    - name: "io.openshift.tags"
+      value: "amqmaas, console"
+envs:
+    - name: "VERSION"
+      value: "latest"
+modules:
+      install:
+          - name: console
+ports:
+    - value: 56720 
+    - value: 8080
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/configserv/build/distributions/console.tgz
+      name: console.tgz
+run:
+      user: 185
+      cmd:
+          - "/opt/launch.sh"
+          - "/opt/app-root/src/bin/console_server.js"    

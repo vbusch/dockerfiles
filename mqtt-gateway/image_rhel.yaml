@@ -1,0 +1,29 @@
+schema_version: 1
+
+version: 1.0
+name: jboss-amqmaas-1/amqmaas10-mqttgateway-openshift
+description: "AMQMaas mqttgateway"
+from: jboss/openjdk18-rhel7:1.0
+labels:
+    - name: "io.k8s.description"
+      value: "mqtt gateway for enmaase"
+    - name: "io.k8s.display-name"
+      value: "AMQMaas mqtt gateway"
+    - name: "io.openshift.tags"
+      value: "amqmaas, mqtt-gateway"
+envs:
+    - name: "VERSION"
+      value: "latest"
+modules:
+      install:
+          - name: mqtt-gateway
+ports:
+    - value: 1883 
+    - value: 8883
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/mqtt-gateway/build/mqtt-gateway.tgz
+      name: mqtt-gateway.tgz
+run:
+      user: 185
+      cmd:
+          - "/opt/run_mqtt.sh"      

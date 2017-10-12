@@ -1,34 +1,30 @@
-version: 1.0
-name: jboss-amqmaas-1-tech-preview/amqmaas10-console-openshift
-from: jboss/base-rhel7:1.0
-user: 185
-dogen:
-    version: "2.4.1"
-    ssl_verify: false
-cmd:
-    - "/opt/console/bin/launch.sh"
+schema_version: 1
 
-packages:
-    - rh-nodejs4
-    - cyrus-sasl-lib
-
-sources:
-    - artifact: https://dl.bintray.com/enmasse/snapshots/latest/console-latest.tar.gz
-      target: console.tgz
-           
-scripts:    
-    - package: console
-      exec: install
-    - package: console
-      exec: prepare.sh
-      user: 185
-
+name: "enmasseproject/console"
+description: "EnMasse console."
+version: "1.14.0"
+from: enmasseproject/nodejs-base:6
+labels:
+    - name: "io.k8s.description"
+      value: "console for enmaase"
+    - name: "io.k8s.display-name"
+      value: "Enmasse Console"
+    - name: "io.openshift.tags"
+      value: "enmasse, console"
 envs:
-    - name: "NODE_PATH"
-      value: "/usr/lib/node_modules"
-    - name: "DISTRO_NAME"
-      value: "console"
+    - name: "VERSION"
+      value: "latest"
+modules:
+      install:
+          - name: console
 ports:
     - value: 56720 
     - value: 8080
-    - value: 80
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/configserv/build/distributions/console.tgz
+      name: console.tgz
+run:
+      user: 185
+      cmd:
+          - "node"
+          - "/opt/app-root/src/bin/console_server.js"    

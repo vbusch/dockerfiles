@@ -1,0 +1,29 @@
+schema_version: 1
+
+version: 1.0
+name: jboss-amqmaas-1/amqmaas10-configserv-openshift
+description: "AMQMaas configuration server."
+from: jboss/openjdk18-rhel7:1.0
+labels:
+    - name: "io.k8s.description"
+      value: "configuration for amqmaas"
+    - name: "io.k8s.display-name"
+      value: "AMQMaas Configuration Server"
+    - name: "io.openshift.tags"
+      value: "amqmaas, configuration, configserv"
+envs:
+    - name: "VERSION"
+      value: "latest"
+modules:
+      install:
+          - name: configserv
+          
+ports:
+    - value: 5672
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/configserv/build/distributions/configserv.tgz
+      name: configserv.tgz
+run:
+      user: 185
+      cmd:
+          - "/opt/configserv/bin/configserv"          

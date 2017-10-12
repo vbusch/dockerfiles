@@ -1,24 +1,32 @@
-version: 1.0
-name: jboss-amqmaas-1-tech-preview/amqmaas10-routermetrics-openshift
-from: jboss-amqmaas-1-tech-preview/amqmaas10-qpidproton-openshift:latest
-user: 185
-dogen:
-    version: "2.4.1"
-    ssl_verify: false
-cmd:
-    - "python"
-    - "/opt/router-metrics.py"
+schema_version: 1
 
-packages:
-    - python2-pip
-
-sources:
-    - artifact: https://dl.bintray.com/enmasse/snapshots/latest/router-metrics.tgz
-      target: router-metrics.tgz
-           
-scripts:    
-    - package: router-metrics
-      exec: install
-
+name: "enmasseproject/router-metrics"
+description: "Metrics for EnMasse"
+version: "1.14.0"
+from: ppatierno/qpid-proton:0.17.0
+labels:
+    - name: "io.k8s.description"
+      value: "Metrics for EnMasse router"
+    - name: "io.k8s.display-name"
+      value: "EnMasse Router Metrics"
+    - name: "io.openshift.tags"
+      value: "enmasse, router-metrics, message"
+envs:
+  - name: "VERSION"
+    value: "latest"
 ports:
     - value: 8080
+modules:
+      install:
+          - name: router-metrics
+
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/router-metrics/build/router-metrics.tgz
+      name: router-metrics.tgz
+      
+run:
+      user: 185
+      cmd:
+          - "python"
+          - "/opt/router-metrics.py"          
+              

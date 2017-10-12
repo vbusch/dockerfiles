@@ -1,0 +1,36 @@
+schema_version: 1
+
+version: 1.0
+name: jboss-amqmaas-1/amqmaas10-routermetrics-openshift
+description: "Metrics for AMQMaas"
+from: jboss-amqmaas-1-tech-preview/amqmaas10-qpidproton-openshift:latest
+labels:
+    - name: "io.k8s.description"
+      value: "Metrics for AMQMaas router"
+    - name: "io.k8s.display-name"
+      value: "AMQMaas Router Metrics"
+    - name: "io.openshift.tags"
+      value: "amqmaas, router-metrics, message"
+envs:
+  - name: "VERSION"
+    value: "latest"
+ports:
+    - value: 8080
+modules:
+      install:
+          - name: router-metrics
+packages:
+      repositories:
+          - jboss-epel
+          - jboss-os     
+      install:
+          - python2-pip
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/router-metrics/build/router-metrics.tgz
+      name: router-metrics.tgz
+      
+run:
+      user: 185
+      cmd:
+          - "python"
+          - "/opt/router-metrics.py"    

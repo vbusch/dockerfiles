@@ -1,21 +1,29 @@
-version: 1.0
-name: jboss-amqmaas-1-tech-preview/amqmaas10-configserv-openshift
-from: jboss/openjdk18-rhel7:1.0
-user: 185
-dogen:
-    version: "2.4.1"
-    ssl_verify: false
-cmd:
-    - "/opt/configserv/bin/launch.sh"
-sources:
-    - artifact: https://dl.bintray.com/enmasse/snapshots/latest/configserv.tgz
-      target: configserv.tgz
-           
-scripts:
-    - package: configserv
-      exec: install
-    - package: dynamic-resources
-      exec: install
-            
+schema_version: 1
+
+name: "enmasseproject/configserv"
+description: "EnMasse configuration server."
+version: "1.14.0"
+from: enmasseproject/java-base:8
+labels:
+    - name: "io.k8s.description"
+      value: "configuration for EnMasse"
+    - name: "io.k8s.display-name"
+      value: "EnMasse Configuration Server"
+    - name: "io.openshift.tags"
+      value: "enmasse, configuration, configserv"
+envs:
+    - name: "VERSION"
+      value: "latest"
+modules:
+      install:
+          - name: configserv
+          
 ports:
     - value: 5672
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/configserv/build/distributions/configserv.tgz
+      name: configserv.tgz
+run:
+      user: 185
+      cmd:
+          - "/opt/configserv/bin/configserv"          

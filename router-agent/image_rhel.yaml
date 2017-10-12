@@ -1,0 +1,30 @@
+schema_version: 1
+
+version: 1.0
+name: jboss-amqmaas/amqmaas10-routeragent-openshift
+description: "AMQMaas router agent"
+from: jboss-amqmaas-1-tech-preview/nodejs-base:1.0
+labels:
+    - name: "io.k8s.description"
+      value: "AMQMaas router agent"
+    - name: "io.k8s.display-name"
+      value: "AMQMaas router agent"
+    - name: "io.openshift.tags"
+      value: "amqmaas,router-agent,messaging,jboss"
+envs:
+    - name: "VERSION"
+      value: "latest"     
+modules:
+      install:
+          - name: router-agent
+          - name: rhea        
+ports:
+    - value: 55672
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/ragent/build/ragent.tgz
+      name: ragent.tgz
+run:
+      user: 185
+      cmd:
+          - "/opt/launch.sh"
+          - "/opt/app-root/src/ragent.js"  

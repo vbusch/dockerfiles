@@ -1,4 +1,5 @@
-LOCAL_ARTIFACT_DIR:=admin/address-controller/server/build/distributions/server.tgz
+LOCAL_ARTIFACT_DIR:=address-controller/build/distributions/address-controller.tgz
+IMAGE_NAME=address-controller
 
 include ../Makefile.common
 

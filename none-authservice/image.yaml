@@ -1,0 +1,30 @@
+schema_version: 1
+
+name: "enmasseproject/none-authservice"
+description: "Enmasse none auth service"
+version: "1.14.0"
+from: enmasseproject/nodejs-base:6
+labels:
+    - name: "io.k8s.description"
+      value: "Enmasse none auth service"
+    - name: "io.k8s.display-name"
+      value: "Enmasse none auth service"
+    - name: "io.openshift.tags"
+      value: "enmasse,none-authservice,messaging"
+envs:
+    - name: "VERSION"
+      value: "latest"
+modules:
+      install:
+          - name: none-authservice
+          - name: rhea
+ports:
+    - value: 5671
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/none-authservice/build/none-authservice.tgz
+      name: none-authservice.tgz
+run:
+      user: 185
+      cmd:
+          - "node" 
+          - "/opt/app-root/src/none-authservice.js"                      

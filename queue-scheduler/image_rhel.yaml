@@ -1,0 +1,28 @@
+schema_version: 1
+
+version: 1.0
+name: jboss-amqmaas-1/amqmaas10-queuescheduler-openshift
+description: "AMQMaas Queue Scheduler"
+from: jboss/openjdk18-rhel7:1.0
+labels:
+    - name: "io.k8s.description"
+      value: "AMQMaas queue scheduler"
+    - name: "io.k8s.display-name"
+      value: "AMQMaas queue scheduler"
+    - name: "io.openshift.tags"
+      value: "amqmaas, queue-scheduler"
+envs:
+    - name: "VERSION"
+      value: "latest"
+modules:
+      install:
+          - name: queue-scheduler
+ports:
+    - value: 55667
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/queue-scheduler/build/distributions/queue-scheduler.tgz
+      name: queue-scheduler.tgz
+run:
+      user: 185
+      cmd:
+          - "/opt/queue-scheduler/bin/queue-scheduler"                  

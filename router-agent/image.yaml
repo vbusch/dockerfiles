@@ -1,29 +1,30 @@
-version: 1.0
-name: jboss-amqmaas-1-tech-preview/amqmaas10-routeragent-openshift
-from: jboss/base-rhel7:1.0
-user: 185
-dogen:
-    version: "2.4.1"
-    ssl_verify: false
-cmd:
-    - "/opt/ragent/bin/launch.sh"
+schema_version: 1
 
-sources:
-    - artifact: https://dl.bintray.com/enmasse/snapshots/latest/ragent-latest.tar.gz
-      target: ragent.tgz
-packages:
-    - rh-nodejs4
-
-scripts:
-    - package: router-agent
-      exec: install
-    - package: router-agent
-      exec: prepare.sh
-      user: 185
+name: "enmasseproject/ragent"
+description: "Enmasse router agent"
+version: "1.14.0"
+from: enmasseproject/nodejs-base:6
+labels:
+    - name: "io.k8s.description"
+      value: "Enmasse router agent"
+    - name: "io.k8s.display-name"
+      value: "Enmasse router agent"
+    - name: "io.openshift.tags"
+      value: "enmasse,router-agent,messaging,jboss"
 envs:
-    - name: "NODE_PATH"
-      value: "/usr/lib/node_modules"
-    - name: "DISTRO_NAME"
-      value: "ragent"           
+    - name: "VERSION"
+      value: "latest"
+modules:
+      install:
+          - name: router-agent
+          - name: rhea
 ports:
     - value: 55672
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/ragent/build/ragent.tgz
+      name: ragent.tgz
+run:
+      user: 185
+      cmd:
+          - "node" 
+          - "/opt/app-root/src/ragent.js"                      

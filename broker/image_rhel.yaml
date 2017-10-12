@@ -1,0 +1,43 @@
+schema_version: 1
+
+name: jboss-amqmaas-1/amqmaas10-broker-openshift
+description: "amqmaas image for artemis broker."
+version: "1.0"
+from: jboss/openjdk18-rhel7:1.0
+labels:
+    - name: "io.k8s.description"
+      value: "implementation of the artemis broker"
+    - name: "io.k8s.display-name"
+      value: "AMQMaas Broker"
+    - name: "io.openshift.tags"
+      value: "amqmaas, broker, artemis"
+envs:
+    - name: "VERSION"
+      value: "latest"
+    - name: "ARTEMIS_VERSION"
+      value: "${version}"      
+    - name: "ARTEMIS_HOME"
+      value: "/opt/apache-artemis-2.3.0"
+    - name: "PATH"
+      value: "$ARTEMIS_HOME/bin:$PATH"
+    - name: "DISTRO_NAME"
+      value: "apache-artemis-2.3.0" 
+modules:
+      repositories:
+          - name: broker.common
+            path: modules/common
+          - name: broker.platform
+            path: modules/rhel
+      install:
+          - name: broker.common.main 
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/artemis/build/artemis-image.tar
+      name: artemis-image.tar
+    - url: http://archive.apache.org/dist/activemq/activemq-artemis/2.3.0/apache-artemis-2.3.0-bin.tar.gz   
+      name: apache-artemis-bin.tar.gz
+#volumes: 
+#    - "/var/run/artemis"  
+run:
+      user: 185
+      cmd:
+          - "/opt/apache-artemis-2.3.0/bin/launch.sh"      

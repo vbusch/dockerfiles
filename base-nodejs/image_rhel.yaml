@@ -1,0 +1,25 @@
+schema_version: 1
+
+name: "jboss-amqmaas-1/nodejs-base"
+version: "1.0"
+from: jboss/base-rhel7:1.0
+description: "Base image for all amqmaas node images"
+labels:
+    - name: maintainer
+      value: "Enmasse <enmasse@redhat.com>"
+envs:
+    - name: "NODE_PATH"
+      value: "/usr/lib/node_modules"      
+modules:
+      install:
+          - name: rhel-nodejs
+packages:
+      repositories:
+          - jboss-os
+          - jboss-rhscl
+      install:
+          - rh-nodejs4 
+          - cyrus-sasl-lib 
+run:
+      user: 185
+      workdir: "/home/jboss"

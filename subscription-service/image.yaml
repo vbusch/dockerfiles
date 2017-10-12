@@ -1,31 +1,30 @@
-version: 1.0
-name: jboss-amqmaas-1-tech-preview/amqmaas10-subscriptionservice-openshift
-from: jboss/base-rhel7:1.0
-user: 185
-dogen:
-    version: "2.4.1"
-    ssl_verify: false
-cmd:
-    - "/opt/subserv/bin/launch.sh"
+schema_version: 1
 
-packages:
-    - rh-nodejs4
-
-sources:
-    - artifact: https://dl.bintray.com/enmasse/snapshots/latest/subserv-latest.tar.gz
-      target: subserv.tgz
-           
-scripts:    
-    - package: subscription-service
-      exec: install
-    - package: subscription-service
-      exec: prepare.sh
-      user: 185
-
+name: "enmasseproject/subserv"
+description: "Enmasse subscription services"
+version: "1.14.0"
+from: enmasseproject/nodejs-base:6
+labels:
+    - name: "io.k8s.description"
+      value: "Enmasse subscription services"
+    - name: "io.k8s.display-name"
+      value: "Enmasse subscription services"
+    - name: "io.openshift.tags"
+      value: "enmasse,subserv,messaging,jboss"
 envs:
-    - name: "NODE_PATH"
-      value: "/usr/lib/node_modules"
-    - name: "DISTRO_NAME"
-      value: "subserv"
+    - name: "VERSION"
+      value: "latest"
+modules:
+      install:
+          - name: subserv
+          - name: rhea
 ports:
     - value: 5672
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/subserv/build/subserv.tgz
+      name: subserv.tgz
+run:
+      user: 185
+      cmd:
+          - "node" 
+          - "/opt/app-root/src/subserv.js"                      

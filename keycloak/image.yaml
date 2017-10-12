@@ -1,0 +1,28 @@
+schema_version: 1
+
+name: "enmasseproject/keycloak"
+description: "EnMasse keycloak"
+version: "1.14.0"
+from: jboss/keycloak:3.2.1.Final
+labels:
+    - name: "io.k8s.description"
+      value: "EnMasse keycloak"
+    - name: "io.k8s.display-name"
+      value: "EnMasse keycloak"
+    - name: "io.openshift.tags"
+      value: "enmasse, keycloak"
+envs:
+    - name: "VERSION"
+      value: "latest"
+    - name: "JAVA_OPTS"
+      value: "-Dvertx.cacheDirBase=/tmp -Djboss.bind.address=0.0.0.0 -Djava.net.preferIPv4Stack=true"
+modules:
+      install:
+          - name: keycloak
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/keycloak/build/distributions/keycloak.tgz
+      name: keycloak.tgz
+run:
+      user: 185
+      cmd:
+          - "/opt/configserv/bin/configserv"          

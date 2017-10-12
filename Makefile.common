@@ -1,4 +1,4 @@
-IMAGE_FILE?=image.yaml
+IMAGE_FILE?=image_rhel.yaml
 COMMIT?=$(shell git rev-parse HEAD | cut -c1-8)
 IMAGE_VERSION?=latest
 DOCKERFILE_DIR?=build
@@ -7,13 +7,16 @@ DOGEN_VERSION?=2.0.1
 DOCKER_BUILD_OPTS?=
 DOCKER?=docker
 PRODUCT_DIR?=../../enmasse
+ARTIFACT_CACHE_DIR?="target/image"
 ABSOLUTE_LOCAL_ARTIFACT_DIR?=$(CURDIR)/$(PRODUCT_DIR)/$(LOCAL_ARTIFACT_DIR)
 
 
 all: build 
 	echo "Running docker build $(REPO)"
-	dogen --repo-files-dir $(YUM_REPO_DIR) --scripts $(CURDIR)/../../scripts --verbose $(IMAGE_FILE) $(CURDIR)/build
-	$(DOCKER) build $(DOCKER_BUILD_OPTS) -t $(REPO):$(COMMIT) $(CURDIR)/build
+	concreate build --descriptor $(IMAGE_FILE)  --build-tech-preview
+	#--build-tag vbusch/$(IMAGE_NAME)
+#	dogen --repo-files-dir $(YUM_REPO_DIR) --scripts $(CURDIR)/../../scripts --verbose $(IMAGE_FILE) $(CURDIR)/build
+#	$(DOCKER) build $(DOCKER_BUILD_OPTS) -t $(REPO):$(COMMIT) $(CURDIR)/build
 
 push:
 	$(DOCKER) tag $(REPO):$(COMMIT) $(DOCKER_REGISTRY)/$(REPO):$(COMMIT)
@@ -25,8 +28,8 @@ snapshot:
 
 copyartifact:
 	echo "Copying local artifacts from $(ABSOLUTE_LOCAL_ARTIFACT_DIR)"
-	mkdir -p build
-	cp $(ABSOLUTE_LOCAL_ARTIFACT_DIR) build
+	mkdir -p $(ARTIFACT_CACHE_DIR)
+	cp $(ABSOLUTE_LOCAL_ARTIFACT_DIR) $(ARTIFACT_CACHE_DIR)
 
 ## BEFORE Merging into master, update docker-build.sh to not pass version as an arg (assuming all docker files are being built by this repo
 #	curl -s https://raw.githubusercontent.com/EnMasseProject/travis-scripts/master/docker-build.sh | bash /dev/stdin $(REPO) $(DOCKERFILE_DIR)

@@ -1,0 +1,22 @@
+schema_version: 1
+
+name: "enmasseproject/nodejs-base"
+version: "6"
+from: "enmasseproject/epel-base:1"
+description: "Base image for all enmasse node images"
+labels:
+    - name: maintainer
+      value: "Enmasse <enmasse@redhat.com>"
+packages:
+      repositories:
+          - centos-base
+          - centos-extras
+          - centos-updates
+          - centos-epel
+      install:
+          - nodejs 
+          - cyrus-sasl-lib 
+          - npm          
+run:
+      user: 185
+      workdir: "/home/jboss"

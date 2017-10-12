@@ -1,0 +1,18 @@
+schema_version: 1
+
+name: "jboss-amqmaas-1/amqmaas10-noneauthservice-openshift"
+description: "AMQMaas none auth service"
+version: "1.0"
+from: jboss-amqmaas-1-tech-preview/nodejs-base:1.0
+labels:
+    - name: "io.k8s.description"
+      value: "AMQMaas none auth service"
+    - name: "io.k8s.display-name"
+      value: "AMQMaas none auth service"
+    - name: "io.openshift.tags"
+      value: "amqmaas,noneauthservice,messaging"
+run:
+      user: 185
+      cmd:
+          - "/opt/launch.sh" 
+          - "/opt/app-root/src/none-authservice.js"                      

@@ -1,9 +1,16 @@
-SUBDIRS=address-controller broker console configserv mqtt-gateway mqtt-lwt qpid-proton router queue-scheduler router-agent router-metrics subscription-service topic-forwarder 
+SUBDIRS=base-nodejs qpid-proton address-controller  configserv console mqtt-gateway mqtt-lwt queue-scheduler router-agent router router-metrics subscription-service topic-forwarder none-authservice broker
+#keycloak-controller keycloak
+BASEIMAGE_SUBDIRS=base base-epel base-java 
 
 all:
 	for dir in $(SUBDIRS); do \
 		$(MAKE) -C $$dir; \
 	done
+	
+baseimages:
+	for dir in $(BASEIMAGE_SUBDIRS); do \
+		$(MAKE) -C $$dir; \
+	done	
 
 pushall:
 	for dir in $(SUBDIRS); do \

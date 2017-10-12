@@ -1,0 +1,32 @@
+schema_version: 1
+
+version: 1.0
+name: jboss-amqmaas-1/amqmaas10-addresscontroller-openshift
+from: jboss/openjdk18-rhel7:1.0
+labels:
+    - name: "io.k8s.description"
+      value: "component that implements an API for creating and deleting AMQ Maas infrastructure instances, and modifying the address configuration per instance"
+    - name: "io.k8s.display-name"
+      value: "AMQ Maas Address Controller"
+    - name: "io.openshift.tags"
+      value: "amqmaas, address-controller"
+envs:
+  - name: "VERSION"
+    value: "latest"           
+ports:
+    - value: 5672
+    - value: 8080
+      repositories:
+          - name: addresscontroller.common
+            path: modules/common
+          - name: addresscontroller.platform
+            path: modules/rhel
+      install:
+          - name: addresscontroller.common.main       
+artifacts: 
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/address-controller/build/distributions/address-controller.tgz
+      name: address-controller.tgz
+run:
+      user: 185
+      cmd:
+          - "/opt/address-controller/bin/address-controller"      
