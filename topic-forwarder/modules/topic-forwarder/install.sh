@@ -9,6 +9,6 @@ DISTRO_NAME=topic-forwarder
 
 # unpack
 {
-	tar xzf "${SOURCES_DIR}/$DISTRO_NAME.tgz" -C /opt
+	mv "${SOURCES_DIR}/topic-forwarder.jar" /opt
 }
 

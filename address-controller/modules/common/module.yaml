@@ -8,6 +8,6 @@ modules:
         - name: addresscontroller.platform.main
 packages:
     install:
-        - openssl  
+        - openssl
 execute:
-    - script: install.sh  
+    - script: install.sh

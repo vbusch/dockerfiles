@@ -1,4 +1,4 @@
-LOCAL_ARTIFACT_DIR:=configserv/build/distributions/configserv.tgz
+LOCAL_ARTIFACT_DIR:=configserv/target/configserv.jar
 IMAGE_NAME=configserv
 
 include ../Makefile.common

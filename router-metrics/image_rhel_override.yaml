@@ -11,4 +11,3 @@ labels:
       value: "AMQMaas Router Metrics"
     - name: "io.openshift.tags"
       value: "amqmaas, router-metrics, message"
-# Needs common modules

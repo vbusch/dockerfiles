@@ -9,9 +9,8 @@ DISTRO_NAME=apache-artemis
 # unpack apache-artemis
 {
 	tar xzf "${SOURCES_DIR}/$DISTRO_NAME-bin.tar.gz"
-	ls -l
-    cp -r "$DISTRO_NAME-2.3.0" /opt
-    rm -r "$DISTRO_NAME-2.3.0"
+    cp -r "$DISTRO_NAME-2.4.0" /opt
+    rm -r "$DISTRO_NAME-2.4.0"
 }
 
 #For volume

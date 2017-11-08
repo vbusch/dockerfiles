@@ -9,6 +9,6 @@ DISTRO_NAME=queue-scheduler
 
 # unpack
 {
-	tar xzf "${SOURCES_DIR}/$DISTRO_NAME.tgz" -C /opt
+	mv "${SOURCES_DIR}/queue-scheduler.jar" /opt
 }
 

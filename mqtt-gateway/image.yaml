@@ -1,9 +1,9 @@
 schema_version: 1
 
 name: "enmasseproject/mqtt-gateway"
-description: "matt gateway for enmasse"
+description: "mqtt gateway for enmasse"
 version: "1.14.0"
-from: enmasseproject/java-base:8
+from: enmasseproject/java-base:8-3
 labels:
     - name: "io.k8s.description"
       value: "mqtt gateway for enmaase"
@@ -15,15 +15,20 @@ envs:
     - name: "VERSION"
       value: "latest"
 modules:
+      repositories:
+          - name: common.java
+            path: ../modules/common/java
       install:
           - name: mqtt-gateway
+          - name: common.java
 ports:
     - value: 1883 
     - value: 8883
 artifacts:
-    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/mqtt-gateway/build/mqtt-gateway.tgz
-      name: mqtt-gateway.tgz
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/mqtt-gateway/target/mqtt-gateway.jar
+      name: mqtt-gateway.jar
 run:
       user: 185
       cmd:
-          - "/opt/run_mqtt.sh"                      
+          - "/bin/launch_java.sh"     
+          - "/opt/mqtt-gateway.jar"                 

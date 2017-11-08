@@ -1,6 +1,6 @@
 schema_version: 1
 
-version: 1.0
+version: "1.0"
 name: jboss-amqmaas-1/amqmaas10-configserv-openshift
 description: "AMQMaas configuration server."
 from: jboss/openjdk18-rhel7:1.0
@@ -15,15 +15,20 @@ envs:
     - name: "VERSION"
       value: "latest"
 modules:
+      repositories:
+          - name: common.java
+            path: ../modules/common/java
       install:
           - name: configserv
+          - name: common.java
           
 ports:
     - value: 5672
 artifacts:
-    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/configserv/build/distributions/configserv.tgz
-      name: configserv.tgz
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/configserv/target/configserv.jar
+      name: configserv.jar
 run:
       user: 185
       cmd:
-          - "/opt/configserv/bin/configserv"          
+          - "/bin/launch_java.sh" 
+          - "/opt/configserv.jar"   

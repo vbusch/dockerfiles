@@ -15,14 +15,19 @@ envs:
     - name: "VERSION"
       value: "latest"
 modules:
+      repositories:
+          - name: common.java
+            path: ../modules/common/java
       install:
           - name: queue-scheduler
+          - name: common.java
 ports:
     - value: 55667
 artifacts:
-    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/queue-scheduler/build/distributions/queue-scheduler.tgz
-      name: queue-scheduler.tgz
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/queue-scheduler/target/queue-scheduler.jar
+      name: queue-scheduler.jar
 run:
       user: 185
       cmd:
-          - "/opt/queue-scheduler/bin/queue-scheduler"                  
+          - "/bin/launch_java.sh"
+          - "/opt/queue-scheduler.jar"                     

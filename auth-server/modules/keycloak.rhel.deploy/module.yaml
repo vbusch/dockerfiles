@@ -1,0 +1,6 @@
+schema_version: 1
+
+name: keycloak.rhel.deploy
+version: '1.0'
+execute:
+  - script: deploy_spi.sh

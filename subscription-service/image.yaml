@@ -15,8 +15,12 @@ envs:
     - name: "VERSION"
       value: "latest"
 modules:
+      repositories:
+          - name: rhea.platform.main
+            path: ../modules/centos
       install:
           - name: subserv
+          - name: bluebird
           - name: rhea
 ports:
     - value: 5672

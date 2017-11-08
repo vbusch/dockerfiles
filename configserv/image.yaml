@@ -3,7 +3,7 @@ schema_version: 1
 name: "enmasseproject/configserv"
 description: "EnMasse configuration server."
 version: "1.14.0"
-from: enmasseproject/java-base:8
+from: enmasseproject/java-base:8-3
 labels:
     - name: "io.k8s.description"
       value: "configuration for EnMasse"
@@ -15,15 +15,20 @@ envs:
     - name: "VERSION"
       value: "latest"
 modules:
+      repositories:
+          - name: common.java
+            path: ../modules/common/java
       install:
           - name: configserv
+          - name: common.java
           
 ports:
     - value: 5672
 artifacts:
-    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/configserv/build/distributions/configserv.tgz
-      name: configserv.tgz
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/configserv/target/configserv.jar
+      name: configserv.jar
 run:
       user: 185
       cmd:
-          - "/opt/configserv/bin/configserv"          
+          - "/bin/launch_java.sh" 
+          - "/opt/configserv.jar"   

@@ -21,12 +21,14 @@ modules:
           - name: router-metrics
 
 artifacts:
-    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/router-metrics/build/router-metrics.tgz
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/router-metrics/router-metrics.tgz
       name: router-metrics.tgz
+    - url: https://github.com/prometheus/client_python/archive/v0.0.21.tar.gz
+      name: prometheus-client.tar.gz
       
 run:
       user: 185
       cmd:
           - "python"
-          - "/opt/router-metrics.py"          
+          - "/opt/router-metrics.py"    
               

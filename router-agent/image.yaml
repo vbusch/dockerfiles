@@ -14,7 +14,11 @@ labels:
 envs:
     - name: "VERSION"
       value: "latest"
+      
 modules:
+      repositories:
+          - name: rhea.platform.main
+            path: ../modules/centos
       install:
           - name: router-agent
           - name: rhea

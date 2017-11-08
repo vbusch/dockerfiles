@@ -1,7 +1,7 @@
 schema_version: 1
 
 version: 1.0
-name: jboss-amqmaas/amqmaas10-interconnect-openshift
+name: jboss-amqmaas-1/amqmaas10-interconnect-openshift
 description: "router with AMQMaas configuration"
 from: jboss-amqmaas-1-tech-preview/amqmaas10-qpidproton-openshift:latest
 labels:

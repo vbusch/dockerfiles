@@ -3,7 +3,7 @@ schema_version: 1
 version: 1.0
 name: jboss-amqmaas-1/amqmaas10-subscriptionservice-openshift
 description: "AMQMaas subscription services"
-from: jboss-amqmaas-1-tech-preview/nodejs-base:1.0
+from: registry.access.redhat.com/rhscl/nodejs-4-rhel7:latest
 labels:
     - name: "io.k8s.description"
       value: "AMQMaas subscription services"
@@ -15,8 +15,12 @@ envs:
     - name: "VERSION"
       value: "latest"
 modules:
+      repositories:
+          - name: rhea.platform.main
+            path: ../modules/centos
       install:
           - name: subserv
+          - name: bluebird
           - name: rhea
 ports:
     - value: 5672
@@ -26,5 +30,5 @@ artifacts:
 run:
       user: 185
       cmd:
-          - "/opt/launch.sh" 
-          - "/opt/app-root/src/subserv.js"   
+          - "node" 
+          - "/opt/app-root/src/subserv.js"                      

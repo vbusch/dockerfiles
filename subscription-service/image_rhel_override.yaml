@@ -3,7 +3,7 @@ schema_version: 1
 version: 1.0
 name: jboss-amqmaas-1/amqmaas10-subscriptionservice-openshift
 description: "AMQMaas subscription services"
-from: jboss-amqmaas-1-tech-preview/nodejs-base:1.0
+from: registry.access.redhat.com/rhscl/nodejs-4-rhel7:latest
 labels:
     - name: "io.k8s.description"
       value: "AMQMaas subscription services"
@@ -11,8 +11,3 @@ labels:
       value: "AMQMaas subscription services"
     - name: "io.openshift.tags"
       value: "amqmaas,subserv,messaging,jboss"
-run:
-      user: 185
-      cmd:
-          - "/opt/launch.sh" 
-          - "/opt/app-root/src/subserv.js"   

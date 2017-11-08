@@ -1,23 +1,26 @@
 schema_version: 1
 
 version: 1.0
-name: jboss-amqmaas/amqmaas10-routeragent-openshift
+name: jboss-amqmaas-1/amqmaas10-routeragent-openshift
 description: "AMQMaas router agent"
-from: jboss-amqmaas-1-tech-preview/nodejs-base:1.0
+from: registry.access.redhat.com/rhscl/nodejs-4-rhel7:latest
 labels:
     - name: "io.k8s.description"
       value: "AMQMaas router agent"
     - name: "io.k8s.display-name"
       value: "AMQMaas router agent"
     - name: "io.openshift.tags"
-      value: "amqmaas,router-agent,messaging,jboss"
+      value: "amqmaas,router-agent,messaging,jboss"       
 envs:
     - name: "VERSION"
-      value: "latest"     
+      value: "latest"
 modules:
+      repositories:
+          - name: rhea.platform.main
+            path: ../modules/rhel
       install:
           - name: router-agent
-          - name: rhea        
+          - name: rhea      
 ports:
     - value: 55672
 artifacts:
@@ -26,5 +29,5 @@ artifacts:
 run:
       user: 185
       cmd:
-          - "/opt/launch.sh"
-          - "/opt/app-root/src/ragent.js"  
+          - "node" 
+          - "/opt/app-root/src/ragent.js"                      

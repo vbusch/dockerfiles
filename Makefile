@@ -1,15 +1,17 @@
-SUBDIRS=base-nodejs qpid-proton address-controller  configserv console mqtt-gateway mqtt-lwt queue-scheduler router-agent router router-metrics subscription-service topic-forwarder none-authservice broker
-#keycloak-controller keycloak
-BASEIMAGE_SUBDIRS=base base-epel base-java 
+SUBDIRS=address-controller configserv agent mqtt-gateway mqtt-lwt queue-scheduler router-agent router router-metrics subscription-service topic-forwarder none-authservice broker auth-controller auth
+CENTOS_SUBDIRS=base base-epel base-java base-nodejs
+RHEL_SUBDIRS= qpid-proton
+#
 
 all:
-	for dir in $(SUBDIRS); do \
+	for dir in $(CENTOS_SUBDIRS) $(SUBDIRS); do \
 		$(MAKE) -C $$dir; \
 	done
-	
-baseimages:
-	for dir in $(BASEIMAGE_SUBDIRS); do \
-		$(MAKE) -C $$dir; \
+
+buildrhel:
+#	$(MAKE) -C $$dir build_rhel
+	for dir in $(SUBDIRS); do \
+		$(MAKE) build_rhel -C $$dir; \
 	done	
 
 pushall:

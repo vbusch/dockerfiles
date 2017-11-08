@@ -16,9 +16,10 @@ packages:
           - qpid-dispatch-router 
           - qpid-dispatch-tools
           - swig
+          - gettext
     
 run:
-      user: 185
+#      user: 185
       cmd:
           - "bash"  
     

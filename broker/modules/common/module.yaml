@@ -8,12 +8,11 @@ modules:
         - name: broker.platform.main
 packages:
     install:
-        - libaio 
-        - python 
-        - gettext 
-        - hostname 
-        - iputils
+#        - libaio 
+#        - python 
+#        - gettext 
+#        - hostname 
+#        - iputils
         - openssl 
 execute:
-  - script: configure.sh
   - script: install.sh

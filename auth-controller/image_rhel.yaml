@@ -1,0 +1,31 @@
+schema_version: 1
+
+version: 1.0
+name: jboss-amqmaas-1/amqmaas10-auth-controller-openshift
+description: "AMQMaas SSO Controller for authentication"
+from: jboss/openjdk18-rhel7:1.0
+labels:
+    - name: "io.k8s.description"
+      value: "AMQMaas Authentication Controller using SSO"
+    - name: "io.k8s.display-name"
+      value: "AMQMaas Authentication Controller"
+    - name: "io.openshift.tags"
+      value: "amqmaas, sso-controller, authentication"
+envs:
+    - name: "VERSION"
+      value: "latest"
+modules:
+      repositories:
+          - name: common.java
+            path: ../modules/common/java
+      install:
+          - name: common.java
+          - name: keycloak-controller
+artifacts:
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/keycloak-controller/build/distributions/keycloak-controller.jar
+      name: keycloak-controller.jar
+run:
+      user: 185
+      cmd:
+          - "/bin/launch_java.sh"     
+          - "/opt/keycloak-controller.jar"          

@@ -14,4 +14,4 @@ labels:
 modules:
       repositories:
           - name: broker.platform
-            path: modules/rhel
+            path: platform/rhel

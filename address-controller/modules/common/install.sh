@@ -9,6 +9,5 @@ DISTRO_NAME=address-controller
 
 # unpack
 {
-    tar xzf "$SOURCES_DIR/$DISTRO_NAME.tgz"
-    mv "$DISTRO_NAME" /opt
+    mv "$SOURCES_DIR/address-controller.jar" /opt
 }

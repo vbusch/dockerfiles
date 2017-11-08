@@ -15,9 +15,12 @@ envs:
     - name: "VERSION"
       value: "latest"
 modules:
+      repositories:
+          - name: rhea.platform.main
+            path: ../modules/centos
       install:
           - name: none-authservice
-          - name: rhea
+          - name: rhea    
 ports:
     - value: 5671
 artifacts:

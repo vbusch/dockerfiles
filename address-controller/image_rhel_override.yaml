@@ -2,6 +2,7 @@ schema_version: 1
 
 version: 1.0
 name: jboss-amqmaas-1/amqmaas10-addresscontroller-openshift
+description: "global component that implements an API for creating and deleting AMQ Maas infrastructure instances, and modifying the address configuration per instance."
 from: jboss/openjdk18-rhel7:1.0
 labels:
     - name: "io.k8s.description"
@@ -13,4 +14,4 @@ labels:
 modules:
     repositories:
         - name: addresscontroller.platform
-          path: modules/rhel
+          path: platform/rhel

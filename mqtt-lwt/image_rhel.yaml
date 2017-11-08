@@ -15,15 +15,17 @@ envs:
     - name: "VERSION"
       value: "latest"
 modules:
+      repositories:
+          - name: common.java
+            path: ../modules/common/java
       install:
           - name: mqtt-lwt
-ports:
-    - value: 1883 
-    - value: 8883
+          - name: common.java
 artifacts:
-    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/mqtt-lwt/build/mqtt-lwt.tgz
-      name: mqtt-lwt.tgz
+    - url: https://maas-jenkins.rhev-ci-vms.eng.rdu2.redhat.com/job/maas-test/lastSuccessfulBuild/artifact/mqtt-lwt/target/mqtt-lwt.jar
+      name: mqtt-lwt.jar
 run:
       user: 185
       cmd:
-          - "/opt/run_mqtt.sh"       
+          - "/bin/launch_java.sh"
+          - "/mqtt-lwt.jar"                   
